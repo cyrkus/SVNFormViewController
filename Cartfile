@@ -1,2 +1,3 @@
 github "sevenapps/SVNTheme" == 1.1.1
 github "sevenapps/SVNTextValidator" "master"
+github "sevenapps/SVNShapesManager" "master"

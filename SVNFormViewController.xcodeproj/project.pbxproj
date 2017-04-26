@@ -7,22 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A118361C1EB1068300862332 /* SVNFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11836181EB1068300862332 /* SVNFormVC.swift */; };
+		A118361D1EB1068300862332 /* SVNFormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11836191EB1068300862332 /* SVNFormTableViewCell.swift */; };
+		A118361E1EB1068300862332 /* SVNFormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118361A1EB1068300862332 /* SVNFormTextField.swift */; };
+		A118361F1EB1068300862332 /* SVNFormFieldDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118361B1EB1068300862332 /* SVNFormFieldDataSource.swift */; };
+		A11836231EB1075D00862332 /* SVNTextValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B6595E1EA945FF00418881 /* SVNTextValidator.framework */; };
+		A11836241EB1075D00862332 /* SVNTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B658FF1EA9404A00418881 /* SVNTheme.framework */; };
+		A11836261EB1075D00862332 /* SVNShapesManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11836251EB1075D00862332 /* SVNShapesManager.framework */; };
 		A1B658F61EA93ECE00418881 /* SVNFormViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B658F41EA93ECE00418881 /* SVNFormViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A1B658FD1EA93ED700418881 /* SVNFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B658FC1EA93ED700418881 /* SVNFormVC.swift */; };
-		A1B659001EA9404A00418881 /* SVNTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B658FF1EA9404A00418881 /* SVNTheme.framework */; };
-		A1B659021EA9421700418881 /* SVNFormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B659011EA9421700418881 /* SVNFormTableViewCell.swift */; };
-		A1B6595B1EA9450D00418881 /* SVNFormFieldDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6595A1EA9450D00418881 /* SVNFormFieldDataSource.swift */; };
-		A1B6595F1EA945FF00418881 /* SVNTextValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B6595E1EA945FF00418881 /* SVNTextValidator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A11836181EB1068300862332 /* SVNFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormVC.swift; sourceTree = "<group>"; };
+		A11836191EB1068300862332 /* SVNFormTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormTableViewCell.swift; sourceTree = "<group>"; };
+		A118361A1EB1068300862332 /* SVNFormTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormTextField.swift; sourceTree = "<group>"; };
+		A118361B1EB1068300862332 /* SVNFormFieldDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormFieldDataSource.swift; sourceTree = "<group>"; };
+		A11836251EB1075D00862332 /* SVNShapesManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNShapesManager.framework; path = Carthage/Build/iOS/SVNShapesManager.framework; sourceTree = "<group>"; };
 		A1B658F11EA93ECE00418881 /* SVNFormViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVNFormViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B658F41EA93ECE00418881 /* SVNFormViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVNFormViewController.h; sourceTree = "<group>"; };
 		A1B658F51EA93ECE00418881 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1B658FC1EA93ED700418881 /* SVNFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormVC.swift; sourceTree = "<group>"; };
 		A1B658FF1EA9404A00418881 /* SVNTheme.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNTheme.framework; path = Carthage/Build/iOS/SVNTheme.framework; sourceTree = "<group>"; };
-		A1B659011EA9421700418881 /* SVNFormTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormTableViewCell.swift; sourceTree = "<group>"; };
-		A1B6595A1EA9450D00418881 /* SVNFormFieldDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormFieldDataSource.swift; sourceTree = "<group>"; };
 		A1B6595E1EA945FF00418881 /* SVNTextValidator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNTextValidator.framework; path = Carthage/Build/iOS/SVNTextValidator.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -31,14 +35,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1B659001EA9404A00418881 /* SVNTheme.framework in Frameworks */,
-				A1B6595F1EA945FF00418881 /* SVNTextValidator.framework in Frameworks */,
+				A11836261EB1075D00862332 /* SVNShapesManager.framework in Frameworks */,
+				A11836231EB1075D00862332 /* SVNTextValidator.framework in Frameworks */,
+				A11836241EB1075D00862332 /* SVNTheme.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A11836201EB1068F00862332 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A11836181EB1068300862332 /* SVNFormVC.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		A11836211EB1069D00862332 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A11836191EB1068300862332 /* SVNFormTableViewCell.swift */,
+				A118361A1EB1068300862332 /* SVNFormTextField.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A11836221EB106A300862332 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A118361B1EB1068300862332 /* SVNFormFieldDataSource.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		A1B658E71EA93ECE00418881 = {
 			isa = PBXGroup;
 			children = (
@@ -59,9 +89,9 @@
 		A1B658F31EA93ECE00418881 /* SVNFormViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A1B658FC1EA93ED700418881 /* SVNFormVC.swift */,
-				A1B659011EA9421700418881 /* SVNFormTableViewCell.swift */,
-				A1B6595A1EA9450D00418881 /* SVNFormFieldDataSource.swift */,
+				A11836201EB1068F00862332 /* ViewController */,
+				A11836211EB1069D00862332 /* View */,
+				A11836221EB106A300862332 /* Model */,
 				A1B658F41EA93ECE00418881 /* SVNFormViewController.h */,
 				A1B658F51EA93ECE00418881 /* Info.plist */,
 			);
@@ -71,6 +101,7 @@
 		A1B658FE1EA9404A00418881 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A11836251EB1075D00862332 /* SVNShapesManager.framework */,
 				A1B6595E1EA945FF00418881 /* SVNTextValidator.framework */,
 				A1B658FF1EA9404A00418881 /* SVNTheme.framework */,
 			);
@@ -158,9 +189,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1B658FD1EA93ED700418881 /* SVNFormVC.swift in Sources */,
-				A1B6595B1EA9450D00418881 /* SVNFormFieldDataSource.swift in Sources */,
-				A1B659021EA9421700418881 /* SVNFormTableViewCell.swift in Sources */,
+				A118361D1EB1068300862332 /* SVNFormTableViewCell.swift in Sources */,
+				A118361E1EB1068300862332 /* SVNFormTextField.swift in Sources */,
+				A118361C1EB1068300862332 /* SVNFormVC.swift in Sources */,
+				A118361F1EB1068300862332 /* SVNFormFieldDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

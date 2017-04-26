@@ -4,3 +4,6 @@
 [submodule "Carthage/Checkouts/SVNTextValidator"]
 	path = Carthage/Checkouts/SVNTextValidator
 	url = https://github.com/sevenapps/SVNTextValidator.git
+[submodule "Carthage/Checkouts/SVNShapesManager"]
+	path = Carthage/Checkouts/SVNShapesManager
+	url = https://github.com/sevenapps/SVNShapesManager.git
