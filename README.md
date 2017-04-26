@@ -1,4 +1,14 @@
- [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) 
+ [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+ # SVNFormViewController
+
+A View Controller containing a UITableView styled in the vein of SVNAppBuilder
+Intended to be set as a child of another ViewController.
+To initialize this VC call init(theme:, dataSource: nibNamed:, bundleNamed:)
+To validate textFields call validator.validate()
+Reference didValidateAllFields([FormFieldType: String]) as a callback to a successful validation
+Tapping Go on the return key type will attempt to validate the textFields resulting in didValidateAllFields being called if successful
+When resizing this viewController make sure to resize the tableview contained within it.
 
 ## To install this framework
 
