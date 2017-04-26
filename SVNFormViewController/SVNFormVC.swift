@@ -42,7 +42,7 @@ open class SVNFormViewController: UIViewController, UITableViewDelegate, UITable
     
     internal var textFields = [SVNFormTextField]()
     
-    init(theme: SVNTheme, dataSource: [FormFieldType], nibNamed: String?, bundleNamed: Bundle?){
+    public init(theme: SVNTheme, dataSource: [FormFieldType], nibNamed: String?, bundleNamed: Bundle?){
         self.theme = theme
         self.dataSource = dataSource
         super.init(nibName: nibNamed, bundle: bundleNamed)
