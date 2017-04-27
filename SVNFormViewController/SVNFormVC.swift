@@ -10,7 +10,7 @@ import SVNTheme
 import SVNTextValidator
 import SVNShapesManager
 
-protocol SVNFormViewControllerDelegate: class {
+public protocol SVNFormViewControllerDelegate: class {
   func forwardingRectOfEditingTextField(_ rect: CGRect)
 }
 
@@ -46,7 +46,7 @@ open class SVNFormViewController: UIViewController, UITableViewDelegate, UITable
   
   internal var textFields = [SVNFormTextField]()
   
-  open weak var delegate: SVNFormViewControllerDelegate?
+  public weak var delegate: SVNFormViewControllerDelegate?
   
   
   public init(theme: SVNTheme, dataSource: [FormFieldType], nibNamed: String?, bundleNamed: Bundle?){
