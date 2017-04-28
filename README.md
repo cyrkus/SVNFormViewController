@@ -1,12 +1,26 @@
  [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
- # SVNFormViewController
+# SVNFormViewController
+A Form ViewController that self validates and animates errors.
+<p align="center">
+  <img src="/images/Setup Account.png" alt="SVNFormViewController"/>
+</p>
 
-A View Controller containing a UITableView styled in the vein of SVNAppBuilder
+
+## To use this framework
 Intended to be set as a child of another ViewController.
-To initialize this VC call init(theme:, dataSource: nibNamed:, bundleNamed:)
-To validate textFields call validator.validate()
-Reference didValidateAllFields([FormFieldType: String]) as a callback to a successful validation
+To initialize this VC call
+
+    init(theme:, dataSource: nibNamed:, bundleNamed:)
+
+To validate textFields call
+
+    validator.validate()
+
+To be notified when all fields have been validated equate a method in the presenting class to:
+
+    didValidateAllFields([FormFieldType: String])
+
 Tapping Go on the return key type will attempt to validate the textFields resulting in didValidateAllFields being called if successful
 When resizing this viewController make sure to resize the tableview contained within it.
 
@@ -33,7 +47,7 @@ Update your project to include the framework:
 
     Carthage update --platform iOS
 
-Add the framework to 'Linked Frameworks and Libraries' in the Xcode Project by dragging and dropping the framework created in
+Add the framework to 'Embedded Binaries' in the Xcode Project by dragging and dropping the framework created in
 
     Carthage/Build/iOS/pathToFramework*.framework
 
