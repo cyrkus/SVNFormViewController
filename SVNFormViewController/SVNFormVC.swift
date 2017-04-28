@@ -10,10 +10,6 @@ import SVNTheme
 import SVNTextValidator
 import SVNShapesManager
 
-public protocol SVNFormViewControllerDelegate: class {
-  func forwardingRectOfEditingTextField(_ rect: CGRect)
-}
-
 /**
  A View Controller containing a tableview set to the bounds of the viewController
  Intended to be set as a child of another View Controller.
@@ -46,8 +42,11 @@ open class SVNFormViewController: UIViewController, UITableViewDelegate, UITable
   
   internal var textFields = [SVNFormTextField]()
   
-  public weak var delegate: SVNFormViewControllerDelegate?
-  
+  public var shouldEnableScrolling = false {
+    didSet {
+      tableView.isScrollEnabled = shouldEnableScrolling
+    }
+  }
   
   public init(theme: SVNTheme, dataSource: [FormFieldType], nibNamed: String?, bundleNamed: Bundle?){
     self.theme = theme
@@ -115,12 +114,6 @@ open class SVNFormViewController: UIViewController, UITableViewDelegate, UITable
     let nextField = textFields[index + 1]
     nextField.becomeFirstResponder()
     return true
-  }
-  
-  public func textFieldDidBeginEditing(_ textField: UITextField) {
-    guard let index = textFields.index(of: textField as! SVNFormTextField) else { return }
-    guard let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) else { return }
-    delegate?.forwardingRectOfEditingTextField(cell.frame)
   }
   
   
