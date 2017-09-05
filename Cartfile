@@ -1,5 +1,5 @@
 github "sevenapps/SVNTheme" "master"
 github "sevenapps/SVNTextValidator" "master"
 github "sevenapps/SVNShapesManager" "master"
-github "sevenapps/SVNMaterialButton" "master"
+github "sevenapps/SVNMaterialButton" ~= 1.1.0
 github "sevenapps/SVNiOSBootstraper" "master"
