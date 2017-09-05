@@ -177,8 +177,8 @@ class SVNFormViewController: UIViewController {
       
       let height = viewModel.getHeightForCell(atRow: i)
       
-      formFieldFrames.append(CGRect(x: LWLargeButton.standardPadding, y: accumulatedY,
-                                    width: view.frame.width - LWLargeButton.standardPadding * 2, height: height))
+      formFieldFrames.append(CGRect(x: SVNMaterialButton.standardPadding, y: accumulatedY,
+                                    width: view.frame.width - SVNMaterialButton.standardPadding * 2, height: height))
       
       accumulatedY += (height + fieldYpadding)
       
@@ -188,10 +188,11 @@ class SVNFormViewController: UIViewController {
     }
     
     
-    buttonFrame = CGRect(x: LWLargeButton.standardPadding, y: accumulatedY + LWLargeButton.standardPadding,
-                         width: view.frame.width - LWLargeButton.standardPadding * 2, height: LWLargeButton.standardHeight)
+    buttonFrame = CGRect(x: LWLargeButton.standardPadding, y: accumulatedY + SVNMaterialButton
+      .standardPadding,
+                         width: view.frame.width - LWLargeButton.standardPadding * 2, height: SVNMaterialButton.standardHeight)
     
-    accumulatedY += (LWLargeButton.standardHeight + (LWLargeButton.standardPadding * 2) + LWLargeButton.bottomPadding)
+    accumulatedY += (LWLargeButton.standardHeight + (LWLargeButton.standardPadding * 2) + SVNMaterialButton.bottomPadding)
     
     scrollView.contentSize = CGSize(width: view.frame.width, height: accumulatedY)
   }
