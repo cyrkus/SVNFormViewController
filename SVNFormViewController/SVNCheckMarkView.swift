@@ -43,16 +43,15 @@ class SVNFormCheckMarkView: UIView, SVNFormField {
   
   var type: SVNFormFieldType!
   
+  fileprivate var theme: SVNTheme {
+    didSet {
+      checkmarkMeta.stroke = theme.acceptButtonTintColor.cgColor
+    }
+  }
   
   var hasErrorMessage: String {
     didSet {
       animateError(isError: hasErrorMessage != "")
-    }
-  }
-  
-  var checkMarkColor: UIColor! {
-    didSet {
-      checkmarkMeta.stroke = checkMarkColor.cgColor
     }
   }
   
@@ -69,7 +68,8 @@ class SVNFormCheckMarkView: UIView, SVNFormField {
   }
   
   
-  init(){
+  init(theme: SVNTheme){
+    self.theme = theme
     hasErrorMessage = ""
     super.init(frame: CGRect.zero)
     setupContainer()
@@ -91,7 +91,7 @@ class SVNFormCheckMarkView: UIView, SVNFormField {
   
   private func setupContainer() {
     backgroundColor = .clear
-    layer.borderColor =
+    layer.borderColor = theme.navigationBarColor.cgColor
     layer.borderWidth = 0.5
     let tgr = UITapGestureRecognizer(target: self, action: #selector(didTapContainer))
     addGestureRecognizer(tgr)
@@ -101,7 +101,7 @@ class SVNFormCheckMarkView: UIView, SVNFormField {
   func animateError(isError: Bool){
     let fromWidth = layer.borderWidth
     let toWidth: CGFloat = isError ? 5.0 : 0.5
-    let toColor: CGColor = isError ? UIColor.red.cgColor : Theme.Colors.fieldBorder.color.cgColor
+    let toColor: CGColor = isError ? theme.declineButtonTintColor.cgColor : theme.acceptButtonTintColor.cgColor
     CATransaction.begin()
     let colorAnim = CABasicAnimation(keyPath: "borderColor")
     colorAnim.duration = 0.25

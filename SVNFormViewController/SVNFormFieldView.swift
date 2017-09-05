@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVNTheme
 
 public enum SVNFieldType {
   case toggle, textField, checkMark
@@ -33,8 +34,7 @@ public class SVNFormFieldView: UIView, FinePrintCreatable {
   }()
   
   lazy var checkMarkView: SVNFormCheckMarkView = {
-    let check = SVNFormCheckMarkView()
-    check.checkMarkColor = Theme.Colors.buttonColor.color
+    let check = SVNFormCheckMarkView(theme: self.theme)
     self.addSubview(check)
     return check
   }()
@@ -64,8 +64,12 @@ public class SVNFormFieldView: UIView, FinePrintCreatable {
   
   var type: SVNFieldType!
   
-  init(withTextFieldData data: SVNFormFieldType, delegate: UITextFieldDelegate, disclosureDelegate: SVNFormDisclosureButtonDelegate, autofillText: String, svnformDelegate: SVNFormTextFieldDelegate){
+  fileprivate var theme: SVNTheme
+  
+  init(withTextFieldData data: SVNFormFieldType, delegate: UITextFieldDelegate, disclosureDelegate: SVNFormDisclosureButtonDelegate, autofillText: String, svnformDelegate: SVNFormTextFieldDelegate, theme: SVNTheme = SVNTheme_DefaultDark()){
+    self.theme = theme
     super.init(frame: CGRect.zero)
+    
     type = .textField
     textField.setView(forType: data, formDelegate: svnformDelegate, textFieldDelegate: delegate, autoFillText:  autofillText)
     

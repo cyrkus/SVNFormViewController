@@ -19,6 +19,8 @@
 		A17AA6C61F5F0CE100045C10 /* SwiftEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17AA6C41F5F0CE100045C10 /* SwiftEssentials.framework */; };
 		A17AA6C81F5F0D3900045C10 /* SVNCheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AA6C71F5F0D3900045C10 /* SVNCheckMarkView.swift */; };
 		A17AA6CA1F5F1B0400045C10 /* SVNMaterialButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17AA6C91F5F1B0400045C10 /* SVNMaterialButton.framework */; };
+		A17AA6D21F5F2C4100045C10 /* SVNFormOverlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AA6D11F5F2C4100045C10 /* SVNFormOverlayViewModel.swift */; };
+		A17AA6D41F5F2C6D00045C10 /* SVNFormPlaceholderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AA6D31F5F2C6D00045C10 /* SVNFormPlaceholderLabel.swift */; };
 		A1E7B3CB1F58BD68004CE999 /* SVNFormDatePickerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E7B3C41F58BD68004CE999 /* SVNFormDatePickerType.swift */; };
 		A1E7B3CC1F58BD68004CE999 /* SVNFormError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E7B3C51F58BD68004CE999 /* SVNFormError.swift */; };
 		A1E7B3CD1F58BD68004CE999 /* SVNFormFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E7B3C61F58BD68004CE999 /* SVNFormFieldType.swift */; };
@@ -39,6 +41,8 @@
 		A17AA6C41F5F0CE100045C10 /* SwiftEssentials.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEssentials.framework; path = Carthage/Build/iOS/SwiftEssentials.framework; sourceTree = "<group>"; };
 		A17AA6C71F5F0D3900045C10 /* SVNCheckMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNCheckMarkView.swift; sourceTree = "<group>"; };
 		A17AA6C91F5F1B0400045C10 /* SVNMaterialButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNMaterialButton.framework; path = Carthage/Build/iOS/SVNMaterialButton.framework; sourceTree = "<group>"; };
+		A17AA6D11F5F2C4100045C10 /* SVNFormOverlayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormOverlayViewModel.swift; sourceTree = "<group>"; };
+		A17AA6D31F5F2C6D00045C10 /* SVNFormPlaceholderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormPlaceholderLabel.swift; sourceTree = "<group>"; };
 		A1B658F11EA93ECE00418881 /* SVNFormViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVNFormViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B658F51EA93ECE00418881 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B658FF1EA9404A00418881 /* SVNTheme.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNTheme.framework; path = Carthage/Build/iOS/SVNTheme.framework; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 		A11836211EB1069D00862332 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A17AA6D31F5F2C6D00045C10 /* SVNFormPlaceholderLabel.swift */,
 				A1245AD01F58BDF90014E953 /* SVNFormDisclosureButton.swift */,
 				A1245AD11F58BDF90014E953 /* SVNFormFieldView.swift */,
 				A1245AD21F58BDF90014E953 /* SVNFormToggleView.swift */,
@@ -92,6 +97,7 @@
 		A11836221EB106A300862332 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A17AA6D11F5F2C4100045C10 /* SVNFormOverlayViewModel.swift */,
 				A1E7B3C41F58BD68004CE999 /* SVNFormDatePickerType.swift */,
 				A1E7B3C51F58BD68004CE999 /* SVNFormError.swift */,
 				A1E7B3C61F58BD68004CE999 /* SVNFormFieldType.swift */,
@@ -227,6 +233,7 @@
 				A17AA6C81F5F0D3900045C10 /* SVNCheckMarkView.swift in Sources */,
 				A1245AD41F58BDF90014E953 /* SVNFormFieldView.swift in Sources */,
 				A1E7B3CC1F58BD68004CE999 /* SVNFormError.swift in Sources */,
+				A17AA6D21F5F2C4100045C10 /* SVNFormOverlayViewModel.swift in Sources */,
 				A1E7B3CD1F58BD68004CE999 /* SVNFormFieldType.swift in Sources */,
 				A1E7B3CB1F58BD68004CE999 /* SVNFormDatePickerType.swift in Sources */,
 				A118361E1EB1068300862332 /* SVNFormTextField.swift in Sources */,
@@ -237,6 +244,7 @@
 				A1E7B3D01F58BD68004CE999 /* SVNTermsFieldType.swift in Sources */,
 				A1245AD51F58BDF90014E953 /* SVNFormToggleView.swift in Sources */,
 				A1E7B3CF1F58BD68004CE999 /* SVNFormViewModel.swift in Sources */,
+				A17AA6D41F5F2C6D00045C10 /* SVNFormPlaceholderLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
