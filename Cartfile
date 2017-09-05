@@ -1,3 +1,5 @@
-github "sevenapps/SVNTheme" == 1.1.1
+github "sevenapps/SVNTheme" "master"
 github "sevenapps/SVNTextValidator" "master"
 github "sevenapps/SVNShapesManager" "master"
+github "https://github.com/sevenapps/SVNMaterialButton" "master"
+github "sevenapps/SVNiOSBootstraper" "master"

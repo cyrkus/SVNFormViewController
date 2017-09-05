@@ -1,9 +1,15 @@
-[submodule "Carthage/Checkouts/SVNTheme"]
-	path = Carthage/Checkouts/SVNTheme
-	url = https://github.com/sevenapps/SVNTheme.git
+[submodule "Carthage/Checkouts/SVNiOSBootstraper"]
+	path = Carthage/Checkouts/SVNiOSBootstraper
+	url = https://github.com/sevenapps/SVNiOSBootstraper.git
+[submodule "Carthage/Checkouts/Swift-Essentials"]
+	path = Carthage/Checkouts/Swift-Essentials
+	url = https://github.com/bikisDesign/Swift-Essentials.git
 [submodule "Carthage/Checkouts/SVNTextValidator"]
-	path = Carthage/Checkouts/SVNTextValidator
 	url = https://github.com/sevenapps/SVNTextValidator.git
+[submodule "Carthage/Checkouts/SVNMaterialButton"]
+	path = Carthage/Checkouts/SVNMaterialButton
+	url = https://github.com/sevenapps/SVNMaterialButton.git
 [submodule "Carthage/Checkouts/SVNShapesManager"]
-	path = Carthage/Checkouts/SVNShapesManager
 	url = https://github.com/sevenapps/SVNShapesManager.git
+[submodule "Carthage/Checkouts/SVNTheme"]
+	url = https://github.com/sevenapps/SVNTheme.git

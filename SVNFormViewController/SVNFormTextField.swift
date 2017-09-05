@@ -7,28 +7,101 @@
 //
 
 import UIKit
-import SVNShapesManager
+import SVNBootstraper
 
-final class SVNFormTextField: UITextField {
+protocol SVNFormTextFieldDelegate: class {
+  func forwardingToolbarStateChange(withState state: SVNFormToolbarState, sender: SVNFormTextField)
+}
+
+final class SVNFormTextField: UITextField, SVNFormField {
+  
+  weak var formDelegate: SVNFormTextFieldDelegate!
+  
+  var validationText: String {
+    get {
+      return text ?? ""
+    }
+  }
+  
+  class var StandardHeight: CGFloat {
+    get {
+      return LWLargeButton.standardHeight - SVNFormPlaceholderLabel.StandardHeight
+    }
+  }
+  
+  
+  var isPristine: Bool = true
+  
+  var type: SVNFormFieldType!
+  
+  lazy var formToolbar: SVNFormToolBar = SVNFormToolBar()
+  
+  var pickerView: SVNFormPickerView?
+  
+  var datePickerView: LWDatePicker?
+  
+  func setView(forType type: SVNFormFieldType, formDelegate: SVNFormTextFieldDelegate, textFieldDelegate: UITextFieldDelegate? = nil, autoFillText: String){
+    isPristine = true
+    self.type = type
+    self.formDelegate = formDelegate
+    delegate = textFieldDelegate
+    font = Theme.Fonts.textField.font
+    textColor = Theme.Colors.darkText.color
+    keyboardType = type.fieldData.keyboardType
+    isSecureTextEntry = type.fieldData.isSecureEntry
+    autocorrectionType = type.fieldData.hasAutoCorrection
     
-    var type: FormFieldType! {
-        didSet {
-            self.keyboardType = type.dataSource.keyboardType
-            self.isSecureTextEntry = type.dataSource.isSecureEntry()
-            self.autocorrectionType = type.dataSource.hasAutoCorrection()
-        }
+    text = autoFillText
+    #if SVNFORM_shouldAutofill
+      if autoFillText == "" {
+        text = type.fieldData.stockData
+      }
+    #endif
+    
+    if let pickerData = type.fieldData.hasPickerView {
+      pickerView = SVNFormPickerView(frame: CGRect.zero, data: pickerData.data)
+      pickerView?.formPickerDelegate = self
+      inputView = pickerView
     }
     
-    var errorButton: UIButton!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.textColor = UIColor.white
-        self.textAlignment = .center
-        self.tintColor = UIColor.white
+    if let datePickerType = type.fieldData.hasDatePicker {
+      datePickerView = LWDatePicker(frame: CGRect.zero, type: datePickerType.data)
+      datePickerView?.delegate = self
+      inputView = datePickerView
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) is not supported")
-    }
+    inputAccessoryView = formToolbar
+    formToolbar.toolbarDelegate = self
+  }
+
+
+
+  override func editingRect(forBounds bounds: CGRect) -> CGRect {
+    return CGRect(x: bounds.origin.x + 5, y: bounds.origin.y,
+                  width: bounds.width - 10, height: bounds.height)
+  }
+  
+  
+  override func textRect(forBounds bounds: CGRect) -> CGRect {
+    return CGRect(x: bounds.origin.x + 5, y: bounds.origin.y,
+                  width: bounds.width - 10, height: bounds.height)
+  }
+}
+
+extension SVNFormTextField: SVNFormToolBarDelegate {
+  func onStateChange(state: SVNFormToolbarState) {
+    formDelegate.forwardingToolbarStateChange(withState: state, sender: self)
+  }
+}
+
+extension SVNFormTextField: SVNFormPickerViewDelegate {
+  func formPicker(didSelectValue value: String) {
+    text = value
+  }
+}
+
+extension SVNFormTextField: LWDatePickerDelegate {
+  func datePicker(changedValue value: String) {
+    text = value
+  }
 }
