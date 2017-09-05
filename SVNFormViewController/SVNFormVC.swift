@@ -63,7 +63,7 @@ class SVNFormViewController: UIViewController {
   
   fileprivate var viewModel: SVNFormViewModel
   
-  var buttonData: LWLargeButtonDataSource
+  fileprivate var buttonViewModel: SVNMaterialButtonViewModel
   
   weak var delegate: SVNFormViewControllerDelegate!
   
@@ -78,17 +78,17 @@ class SVNFormViewController: UIViewController {
   private var theme: SVNTheme!
   
   
-  lazy var validationButton: LWLargeButton = {
-    let button = LWLargeButton(frame: CGRect.zero, dataSource: self.buttonData)
+  lazy var validationButton: SVNMaterialButton = {
+    let button = SVNMaterialButton(frame: CGRect.zero, viewModel: self.buttonViewModel)
     button.addTarget(self, action: #selector(onValidateButtonTap), for: .touchUpInside)
     self.scrollView.addSubview(button)
     return button
   }()
   
   
-  init(withData dataSource: SVNFormViewControllerDataSource, buttonData: LWLargeButtonDataSource, delegate: SVNFormViewControllerDelegate, theme: SVNTheme? = SVNTheme_DefaultDark()){
+  init(withData dataSource: SVNFormViewControllerDataSource, buttonViewModel: SVNMaterialButtonViewModel, delegate: SVNFormViewControllerDelegate, theme: SVNTheme? = SVNTheme_DefaultDark()){
     viewModel = SVNFormViewModel(dataSource: dataSource)
-    self.buttonData = buttonData
+    self.buttonViewModel = buttonViewModel
     super.init(nibName: nil, bundle: nil)
     self.theme = theme
     self.delegate = delegate
