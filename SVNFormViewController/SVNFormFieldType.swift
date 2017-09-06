@@ -9,7 +9,7 @@
 import UIKit
 import SVNTextValidator
 
-protocol SVNFormField: class, Validatable {
+public protocol SVNFormField: class, Validatable {
   var validationText: String { get }
   var type: SVNFormFieldType! { get set }
 }
