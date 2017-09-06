@@ -12,12 +12,6 @@ import SVNTextValidator
 import SVNBootstraper
 import SVNTheme
 
-public protocol SVNFormCheckMarkViewModel {
-  var type: SVNFormFieldType { get }
-  var finePrintParagraph: [FinePrintAttibutedString] { get }
-  var finePrintAlignment: NSTextAlignment { get }
-}
-
 
 class SVNFormCheckMarkView: UIView, SVNFormField {
   

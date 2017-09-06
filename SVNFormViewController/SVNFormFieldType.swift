@@ -64,7 +64,7 @@ public protocol SVNFormFieldDataSource {
   /// ### Review SVNFormTermsFieldType for more information ###
   /// set to nil if the field is not a checkMark
   /// - Remark: default is *nil*
-  var isTerms: SVNFormTermsFieldType? { get }
+  var isCheckMarkField: SVNFormCheckMarkViewModel? { get }
   
   /// ### Review SVNFormDatePickerType for more information ###
   /// set to nil if the field does not have a datePicker inputView
@@ -96,7 +96,7 @@ extension SVNFormFieldDataSource {
   
   var stockData: String { return "" }
   
-  var isTerms: SVNFormTermsFieldType? { return nil }
+  var isCheckMarkField: SVNFormCheckMarkViewModel? { return nil }
   
   var hasDatePicker: SVNFormDatePickerType? { return nil }
   

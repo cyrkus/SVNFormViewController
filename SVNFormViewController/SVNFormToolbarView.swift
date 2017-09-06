@@ -9,11 +9,11 @@
 import UIKit
 import SVNTheme
 
-protocol SVNFormToolBarDelegate : class {
+public protocol SVNFormToolBarDelegate : class {
   func onStateChange(state: SVNFormToolbarState)
 }
 
-enum SVNFormToolbarState {
+public enum SVNFormToolbarState {
   case dismiss, next, previous
 }
 

@@ -22,10 +22,10 @@ public protocol SVNToggleDataSource {
   var unselectedColor: UIColor { get }
 }
 
-extension SVNToggleDataSource {
-  var font: UIFont { return Theme.Fonts.textField.font }
-  
-  var selectedColor: UIColor { return  Theme.Colors.buttonColor.color }
-  
-  var unselectedColor: UIColor { return  Theme.Colors.buttonUnavailableColor.color }
-}
+//extension SVNToggleDataSource {
+//  var font: UIFont { return Theme.Fonts.textField.font }
+//  
+//  var selectedColor: UIColor { return  Theme.Colors.buttonColor.color }
+//  
+//  var unselectedColor: UIColor { return  Theme.Colors.buttonUnavailableColor.color }
+//}

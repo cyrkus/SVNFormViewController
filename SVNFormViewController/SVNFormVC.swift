@@ -191,11 +191,11 @@ class SVNFormViewController: UIViewController {
     }
     
     
-    buttonFrame = CGRect(x: LWLargeButton.standardPadding, y: accumulatedY + SVNMaterialButton
+    buttonFrame = CGRect(x: SVNMaterialButton.standardPadding, y: accumulatedY + SVNMaterialButton
       .standardPadding,
-                         width: view.frame.width - LWLargeButton.standardPadding * 2, height: SVNMaterialButton.standardHeight)
+                         width: view.frame.width - SVNMaterialButton.standardPadding * 2, height: SVNMaterialButton.standardHeight)
     
-    accumulatedY += (LWLargeButton.standardHeight + (LWLargeButton.standardPadding * 2) + SVNMaterialButton.bottomPadding)
+    accumulatedY += (SVNMaterialButton.standardHeight + (SVNMaterialButton.standardPadding * 2) + SVNMaterialButton.bottomPadding)
     
     scrollView.contentSize = CGSize(width: view.frame.width, height: accumulatedY)
   }

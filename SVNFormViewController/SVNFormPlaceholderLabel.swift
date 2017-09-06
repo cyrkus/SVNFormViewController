@@ -8,6 +8,7 @@
 
 import UIKit
 import SVNBootstraper
+import SVNTheme
 
 class SVNFormPlaceholderLabel: UILabel {
   
@@ -33,17 +34,20 @@ class SVNFormPlaceholderLabel: UILabel {
     }
   }
   
-  init(){
+  var theme: SVNTheme
+  
+  init(theme: SVNTheme){
+    self.theme = theme
     super.init(frame: CGRect.zero)
     textAlignment = .left
-    font = Theme.Fonts.body.font
-    textColor = Theme.Colors.lightText.color
+    font = theme.smallHeading
+    textColor = theme.primaryDialogColor
   }
   required init?(coder aDecoder: NSCoder) { fatalError() }
   
   
   func refreshView(){
-    textColor = hasErrorMessage != nil ? UIColor.red : Theme.Colors.lightText.color
+    textColor = hasErrorMessage != nil ? theme.declineButtonTintColor : theme.acceptButtonTintColor
     if hasErrorMessage == "Required" {
       guard let stockText = standardText else { return }
       if stockText.characters.last == "?" {

@@ -19,30 +19,30 @@ public protocol SVNFormTextFieldViewModel: class {
   var type: SVNFormFieldType { get }
 }
 
-protocol SVNFormTextFieldDelegate: class {
+public protocol SVNFormTextFieldDelegate: class {
   func forwardingToolbarStateChange(withState state: SVNFormToolbarState, sender: SVNFormTextField)
 }
 
-final class SVNFormTextField: UITextField, SVNFormField {
+open class SVNFormTextField: UITextField, SVNFormField {
   
   weak var formDelegate: SVNFormTextFieldDelegate!
   
-  var validationText: String {
+  public var validationText: String {
     get {
       return text ?? ""
     }
   }
   
-  class var StandardHeight: CGFloat {
+  public class var StandardHeight: CGFloat {
     get {
       return SVNMaterialButton.standardHeight - SVNFormPlaceholderLabel.StandardHeight
     }
   }
   
   
-  var isPristine: Bool = true
+  public var isPristine: Bool = true
   
-  var type: SVNFormFieldType!
+  public var type: SVNFormFieldType!
   
   lazy var formToolbar: SVNFormToolBar = SVNFormToolBar(viewModel: self.viewModel.toolbarViewModel)
   
@@ -52,7 +52,7 @@ final class SVNFormTextField: UITextField, SVNFormField {
   
   private var viewModel: SVNFormTextFieldViewModel!
   
-  func setView(withViewModel viewModel: SVNFormTextFieldViewModel, formDelegate: SVNFormTextFieldDelegate, textFieldDelegate: UITextFieldDelegate? = nil, autoFillText: String){
+  public func setView(withViewModel viewModel: SVNFormTextFieldViewModel, formDelegate: SVNFormTextFieldDelegate, textFieldDelegate: UITextFieldDelegate? = nil, autoFillText: String){
     isPristine = true
     self.type = viewModel.type
     self.formDelegate = formDelegate
@@ -88,20 +88,20 @@ final class SVNFormTextField: UITextField, SVNFormField {
 
 
 
-  override func editingRect(forBounds bounds: CGRect) -> CGRect {
+  override open func editingRect(forBounds bounds: CGRect) -> CGRect {
     return CGRect(x: bounds.origin.x + 5, y: bounds.origin.y,
                   width: bounds.width - 10, height: bounds.height)
   }
   
   
-  override func textRect(forBounds bounds: CGRect) -> CGRect {
+  override open func textRect(forBounds bounds: CGRect) -> CGRect {
     return CGRect(x: bounds.origin.x + 5, y: bounds.origin.y,
                   width: bounds.width - 10, height: bounds.height)
   }
 }
 
 extension SVNFormTextField: SVNFormToolBarDelegate {
-  func onStateChange(state: SVNFormToolbarState) {
+  public func onStateChange(state: SVNFormToolbarState) {
     formDelegate.forwardingToolbarStateChange(withState: state, sender: self)
   }
 }

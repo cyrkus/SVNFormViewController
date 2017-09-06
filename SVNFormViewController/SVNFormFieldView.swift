@@ -47,7 +47,7 @@ public class SVNFormFieldView: UIView, FinePrintCreatable {
   }()
   
   lazy var placeholder: SVNFormPlaceholderLabel = {
-    let label = SVNFormPlaceholderLabel()
+    let label = SVNFormPlaceholderLabel(theme: self.theme)
     self.addSubview(label)
     return label
   }()
@@ -83,13 +83,15 @@ public class SVNFormFieldView: UIView, FinePrintCreatable {
   }
   
   
-  public init(checkMarkViewModel: SVNFormCheckMarkViewModel, autoFillText: String, theme: SVNTheme = SVNTheme_DefaultDark()){
+  public init(checkMarkView data: SVNFormFieldType, autoFillText: String, theme: SVNTheme = SVNTheme_DefaultDark()){
     self.theme = theme
     super.init(frame: CGRect.zero)
     
     type = .checkMark
     
-    checkMarkView.setView(asType: checkMarkViewModel.type, isChecked: autoFillText != "")
+    checkMarkView.setView(asType: data, isChecked: autoFillText != "")
+    
+    guard let checkMarkViewModel = data.fieldData.isCheckMarkField else { return }
     
     termsLabel.attributedText = createFinePrintAttributedString(withParagraph: checkMarkViewModel.finePrintParagraph,
                                                                 linkFont: theme.smallHeading, textColor: theme.primaryDialogColor,
@@ -99,16 +101,16 @@ public class SVNFormFieldView: UIView, FinePrintCreatable {
   }
   
   
-  init(fieldType: SVNFormFieldType, autoFillText: String, placeholderText: String, disclosureDelegate: SVNFormDisclosureButtonDelegate){
+  init(toggleView data: SVNFormFieldType, autoFillText: String, placeholderText: String, disclosureDelegate: SVNFormDisclosureButtonDelegate){
     super.init(frame: CGRect.zero)
     type = .toggle
     
-    toggleView.setView(withData: fieldType.fieldData.hasToggle!, type: fieldType, autofill: autoFillText)
+    toggleView.setView(withData: data.fieldData.hasToggle!, type: data, autofill: autoFillText)
     
     placeholder.standardText = placeholderText
     placeholder.refreshView()
     
-    addToolTip(for: fieldType, disclosureDelegate: disclosureDelegate)
+    addToolTip(for: data, disclosureDelegate: disclosureDelegate)
   }
   
   

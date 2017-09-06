@@ -90,15 +90,11 @@
 		A11836211EB1069D00862332 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A17AA6D51F5F53CD00045C10 /* SVNFormToolbarView.swift */,
-				A17AA6D71F5F567500045C10 /* SVNFormPickerView.swift */,
-				A17AA6D91F5F569700045C10 /* SVNFormDatePicker.swift */,
-				A17AA6D31F5F2C6D00045C10 /* SVNFormPlaceholderLabel.swift */,
-				A1245AD01F58BDF90014E953 /* SVNFormDisclosureButton.swift */,
 				A1245AD11F58BDF90014E953 /* SVNFormFieldView.swift */,
-				A1245AD21F58BDF90014E953 /* SVNFormToggleView.swift */,
-				A118361A1EB1068300862332 /* SVNFormTextField.swift */,
-				A17AA6C71F5F0D3900045C10 /* SVNCheckMarkView.swift */,
+				A151395E1F6084C10027DF12 /* SVNFormField */,
+				A151395F1F6084D10027DF12 /* TextFieldInputView */,
+				A15139601F6084E20027DF12 /* Toolbar */,
+				A15139611F6084E80027DF12 /* Details */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -106,16 +102,60 @@
 		A11836221EB106A300862332 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A15139621F6085430027DF12 /* FormModel */,
 				A17AA6D11F5F2C4100045C10 /* SVNFormOverlayViewModel.swift */,
 				A1E7B3C41F58BD68004CE999 /* SVNFormDatePickerType.swift */,
 				A1E7B3C51F58BD68004CE999 /* SVNFormError.swift */,
 				A1E7B3C61F58BD68004CE999 /* SVNFormFieldType.swift */,
 				A1E7B3C71F58BD68004CE999 /* SVNFormPickerType.swift */,
-				A1E7B3C81F58BD68004CE999 /* SVNFormViewModel.swift */,
 				A1E7B3C91F58BD68004CE999 /* SVNTermsFieldType.swift */,
 				A1E7B3CA1F58BD68004CE999 /* SVNToggleType.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A151395E1F6084C10027DF12 /* SVNFormField */ = {
+			isa = PBXGroup;
+			children = (
+				A1245AD21F58BDF90014E953 /* SVNFormToggleView.swift */,
+				A118361A1EB1068300862332 /* SVNFormTextField.swift */,
+				A17AA6C71F5F0D3900045C10 /* SVNCheckMarkView.swift */,
+			);
+			name = SVNFormField;
+			sourceTree = "<group>";
+		};
+		A151395F1F6084D10027DF12 /* TextFieldInputView */ = {
+			isa = PBXGroup;
+			children = (
+				A17AA6D71F5F567500045C10 /* SVNFormPickerView.swift */,
+				A17AA6D91F5F569700045C10 /* SVNFormDatePicker.swift */,
+			);
+			name = TextFieldInputView;
+			sourceTree = "<group>";
+		};
+		A15139601F6084E20027DF12 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				A17AA6D51F5F53CD00045C10 /* SVNFormToolbarView.swift */,
+			);
+			name = Toolbar;
+			sourceTree = "<group>";
+		};
+		A15139611F6084E80027DF12 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				A17AA6D31F5F2C6D00045C10 /* SVNFormPlaceholderLabel.swift */,
+				A1245AD01F58BDF90014E953 /* SVNFormDisclosureButton.swift */,
+			);
+			name = Details;
+			sourceTree = "<group>";
+		};
+		A15139621F6085430027DF12 /* FormModel */ = {
+			isa = PBXGroup;
+			children = (
+				A1E7B3C81F58BD68004CE999 /* SVNFormViewModel.swift */,
+			);
+			name = FormModel;
 			sourceTree = "<group>";
 		};
 		A1B658E71EA93ECE00418881 = {

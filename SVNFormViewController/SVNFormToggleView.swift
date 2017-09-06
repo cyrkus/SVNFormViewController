@@ -8,6 +8,7 @@
 
 import UIKit
 import SVNTextValidator
+import SVNMaterialButton
 
 protocol SVNFormToggleViewDelegate: class {
   func onToggleViewTap(withValidationText text: String)
@@ -23,7 +24,7 @@ class SVNFormToggleView: UIView, SVNFormField {
   
   class var StandardHeight: CGFloat {
     get {
-      return LWLargeButton.standardHeight
+      return SVNMaterialButton.standardHeight
     }
   }
   

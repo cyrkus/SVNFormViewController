@@ -135,8 +135,9 @@ extension SVNFormViewModel {
       return toggleField
     }
     
-    if rowData.fieldData.isTerms != nil {
-      let checkMarkField = SVNFormFieldView(withCheckMarkData: rowData, autoFillText: autoFillText[row])
+    
+    if let checkMarkData = rowData.fieldData.isCheckMarkField  {
+      let checkMarkField = SVNFormFieldView(checkMarkViewModel: checkMarkData, autoFillText: autoFillText[row])
       
       checkMarkField.delegate = formFieldViewDelegate
       
@@ -146,6 +147,7 @@ extension SVNFormViewModel {
       
       return checkMarkField
     }
+    
     
     let textFormField = SVNFormFieldView(withTextFieldData: rowData, delegate: textFieldDelegate,
                                          disclosureDelegate: disclosureButtonDelegate, autofillText: autoFillText[row],

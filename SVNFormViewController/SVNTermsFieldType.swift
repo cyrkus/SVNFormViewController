@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import SVNBootstraper
 
-public protocol SVNFormTermsFieldType {
-  var data: SVNFormTermsFieldDataSource { get }
-}
+//public protocol SVNFormCheckMarkType {
+//  var data: SVNFormTermsFieldDataSource { get }
+//}
 
-public protocol SVNFormTermsFieldDataSource {
+public protocol SVNFormCheckMarkViewModel {
   var terms: [String] { get }
   
   var checkMarkColor: UIColor { get }
@@ -20,10 +21,8 @@ public protocol SVNFormTermsFieldDataSource {
   var font: UIFont { get }
   
   var textColor: UIColor { get }
-}
-
-extension SVNFormTermsFieldDataSource {
-  var textColor: UIColor { return UIColor.darkGray }
   
-  var checkMarkColor: UIColor { return UIColor.red }
+  var finePrintParagraph: [FinePrintAttibutedString] { get }
+  
+   var finePrintAlignment: NSTextAlignment { get }
 }
