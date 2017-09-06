@@ -14,7 +14,7 @@ protocol SVNFormField: class, Validatable {
   var type: SVNFormFieldType! { get set }
 }
 
-typealias SVNFormViewControllerDataSource = [SVNFormFieldType]
+public typealias SVNFormViewControllerDataSource = [SVNFormFieldType]
 
 
 public protocol SVNFormFieldType {
@@ -86,7 +86,7 @@ public protocol SVNFormFieldDataSource {
 }
 
 
-extension SVNFormFieldDataSource {
+public extension SVNFormFieldDataSource {
   
   var keyboardType: UIKeyboardType { return .default }
   
