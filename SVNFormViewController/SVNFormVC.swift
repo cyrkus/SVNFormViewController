@@ -89,7 +89,7 @@ public class SVNFormViewController: UIViewController {
   }()
   
   
-  init(withData dataSource: SVNFormViewControllerDataSource, buttonViewModel: SVNMaterialButtonViewModel, delegate: SVNFormViewControllerDelegate, theme: SVNTheme? = SVNTheme_DefaultDark()){
+  public init(withData dataSource: SVNFormViewControllerDataSource, buttonViewModel: SVNMaterialButtonViewModel, delegate: SVNFormViewControllerDelegate, theme: SVNTheme? = SVNTheme_DefaultDark()){
     viewModel = SVNFormViewModel(dataSource: dataSource)
     self.buttonViewModel = buttonViewModel
     super.init(nibName: nil, bundle: nil)
