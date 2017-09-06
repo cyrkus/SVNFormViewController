@@ -18,35 +18,29 @@ public enum SVNFormToolbarState {
 }
 
 
-public protocol SVNFormToolbarViewModel: class {
-  var tintColor: UIColor { get }
-  var upChevron: UIImage { get }
-  var downChevron: UIImage { get }
-}
-
-
 class SVNFormToolBar: UIToolbar {
   
   weak var toolbarDelegate: SVNFormToolBarDelegate?
   
-  private var viewModel: SVNFormToolbarViewModel
+  var viewModel: SVNFormToolbarViewModel! {
+    didSet {
+      addButtons()
+    }
+  }
   
-  init(frame: CGRect = CGRect.zero, viewModel: SVNFormToolbarViewModel){
-    self.viewModel = viewModel
-    
+  override init(frame: CGRect = CGRect.zero){
     super.init(frame: frame)
     barStyle = UIBarStyle.default
     isTranslucent = true
     tintColor = viewModel.tintColor
     sizeToFit()
-    addButtons()
   }
   required init?(coder aDecoder: NSCoder) {
     fatalError()
   }
   
   
-  func addButtons(){
+  private func addButtons(){
     let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(toolBarFinished))
     let firstFlexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     let upButton = UIBarButtonItem(image: viewModel.upChevron, landscapeImagePhone: .none, style:.plain, target: self, action: #selector(previousField))
@@ -56,17 +50,18 @@ class SVNFormToolBar: UIToolbar {
   }
   
   
-  func previousField(){
+  @objc
+  private func previousField(){
     toolbarDelegate?.onStateChange(state: .previous)
   }
   
-  
-  func nextField(){
+  @objc
+  private func nextField(){
     toolbarDelegate?.onStateChange(state: .next)
   }
   
-  
-  func toolBarFinished(){
+  @objc
+  private func toolBarFinished(){
     toolbarDelegate?.onStateChange(state: .dismiss)
   }
 }

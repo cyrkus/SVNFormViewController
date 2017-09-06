@@ -7,16 +7,23 @@
 //
 
 import UIKit
+import SVNTheme
+
 protocol SVNFormPickerViewDelegate: class {
   func formPicker(didSelectValue value:String)
 }
 
 class SVNFormPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource, UIGestureRecognizerDelegate {
+  
   var data: SVNFormPickerDataSource
+  
   weak var formPickerDelegate: SVNFormPickerViewDelegate?
   
-  init(frame: CGRect, data: SVNFormPickerDataSource) {
+  var theme: SVNTheme
+  
+  init(frame: CGRect, data: SVNFormPickerDataSource, theme: SVNTheme) {
     self.data = data
+    self.theme = theme
     super.init(frame: frame)
     setUpPicker()
   }
@@ -65,7 +72,7 @@ class SVNFormPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
                        y: pickerLabel!.frame.origin.y,
                        width: pickerLabel!.frame.width - 20, height: pickerLabel!.frame.height)
     pickerLabel?.frame = frame
-    pickerLabel?.font = Theme.Fonts.largePicker.font
+    pickerLabel?.font = theme.largeHeading
     pickerLabel?.adjustsFontSizeToFitWidth = true
     pickerLabel?.textAlignment = NSTextAlignment.center
     pickerLabel?.text = data.content[row]

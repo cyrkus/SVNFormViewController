@@ -67,23 +67,23 @@ public class SVNFormFieldView: UIView, FinePrintCreatable {
   
   fileprivate var theme: SVNTheme
   
-  public init(withTextFieldData data: SVNFormTextFieldViewModel, delegate: UITextFieldDelegate, disclosureDelegate: SVNFormDisclosureButtonDelegate, autofillText: String, svnformDelegate: SVNFormTextFieldDelegate, theme: SVNTheme = SVNTheme_DefaultDark()){
+  public init(textField data: SVNFormFieldType, delegate: UITextFieldDelegate, disclosureDelegate: SVNFormDisclosureButtonDelegate, autofillText: String, svnformDelegate: SVNFormTextFieldDelegate, theme: SVNTheme){
     self.theme = theme
     super.init(frame: CGRect.zero)
     
     type = .textField
-    textField.setView(withViewModel: data, formDelegate: svnformDelegate, textFieldDelegate: delegate, autoFillText:  autofillText)
+    textField.setView(for: data, formDelegate: svnformDelegate, textFieldDelegate: delegate, autoFillText:  autofillText, theme: theme)
     
-    placeholder.standardText = data.type.fieldData.placeholder
+    placeholder.standardText = data.fieldData.placeholder
     placeholder.refreshView()
     
-    addToolTip(for: data.type, disclosureDelegate: disclosureDelegate)
+    addToolTip(for: data, disclosureDelegate: disclosureDelegate)
     
     setBorderStyling()
   }
   
   
-  public init(checkMarkView data: SVNFormFieldType, autoFillText: String, theme: SVNTheme = SVNTheme_DefaultDark()){
+  public init(checkMarkView data: SVNFormFieldType, autoFillText: String, theme: SVNTheme){
     self.theme = theme
     super.init(frame: CGRect.zero)
     
@@ -101,7 +101,8 @@ public class SVNFormFieldView: UIView, FinePrintCreatable {
   }
   
   
-  init(toggleView data: SVNFormFieldType, autoFillText: String, placeholderText: String, disclosureDelegate: SVNFormDisclosureButtonDelegate){
+  init(toggleView data: SVNFormFieldType, autoFillText: String, placeholderText: String, disclosureDelegate: SVNFormDisclosureButtonDelegate, theme: SVNTheme){
+    self.theme = theme
     super.init(frame: CGRect.zero)
     type = .toggle
     
@@ -177,7 +178,7 @@ public class SVNFormFieldView: UIView, FinePrintCreatable {
   }
   
   private func setBorderStyling(){
-    layer.borderColor = Theme.Colors.lightText.color.cgColor
+    layer.borderColor = theme.tertiaryDialogColor.cgColor
     layer.borderWidth = 0.5
   }
 }

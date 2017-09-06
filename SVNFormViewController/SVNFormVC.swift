@@ -176,7 +176,7 @@ class SVNFormViewController: UIViewController {
     
     for i in 0..<viewModel.numberOfFields {
       
-      let field = viewModel.createField(forRow: i)
+      let field = viewModel.createField(forRow: i, theme: theme)
       
       let height = viewModel.getHeightForCell(atRow: i)
       

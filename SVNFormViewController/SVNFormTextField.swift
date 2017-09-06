@@ -12,13 +12,6 @@ import SVNMaterialButton
 import SVNTheme
 
 
-public protocol SVNFormTextFieldViewModel: class {
-  var toolbarViewModel: SVNFormToolbarViewModel { get }
-  var textFieldFont: UIFont { get }
-  var textColor: UIColor { get }
-  var type: SVNFormFieldType { get }
-}
-
 public protocol SVNFormTextFieldDelegate: class {
   func forwardingToolbarStateChange(withState state: SVNFormToolbarState, sender: SVNFormTextField)
 }
@@ -44,21 +37,22 @@ open class SVNFormTextField: UITextField, SVNFormField {
   
   public var type: SVNFormFieldType!
   
-  lazy var formToolbar: SVNFormToolBar = SVNFormToolBar(viewModel: self.viewModel.toolbarViewModel)
+  lazy var formToolbar: SVNFormToolBar = SVNFormToolBar()
   
   var pickerView: SVNFormPickerView?
   
   var datePickerView: SVNFormDatePicker?
   
-  private var viewModel: SVNFormTextFieldViewModel!
+  var theme: SVNTheme!
   
-  public func setView(withViewModel viewModel: SVNFormTextFieldViewModel, formDelegate: SVNFormTextFieldDelegate, textFieldDelegate: UITextFieldDelegate? = nil, autoFillText: String){
+  
+  public func setView(for type: SVNFormFieldType, formDelegate: SVNFormTextFieldDelegate, textFieldDelegate: UITextFieldDelegate? = nil, autoFillText: String, theme: SVNTheme){
     isPristine = true
-    self.type = viewModel.type
+    self.type = type
     self.formDelegate = formDelegate
     delegate = textFieldDelegate
-    font = viewModel.textFieldFont
-    textColor = viewModel.textColor
+    font = type.fieldData.textFieldFont
+    textColor = type.fieldData.textColor
     keyboardType = type.fieldData.keyboardType
     isSecureTextEntry = type.fieldData.isSecureEntry
     autocorrectionType = type.fieldData.hasAutoCorrection
@@ -71,19 +65,20 @@ open class SVNFormTextField: UITextField, SVNFormField {
     #endif
     
     if let pickerData = type.fieldData.hasPickerView {
-      pickerView = SVNFormPickerView(frame: CGRect.zero, data: pickerData.data)
+      pickerView = SVNFormPickerView(frame: CGRect.zero, data: pickerData.data, theme: theme)
       pickerView?.formPickerDelegate = self
       inputView = pickerView
     }
     
     if let datePickerType = type.fieldData.hasDatePicker {
-      datePickerView = SVNFormDatePicker(frame: CGRect.zero, type: datePickerType.data)
+      datePickerView = SVNFormDatePicker(frame: CGRect.zero, type: datePickerType.data, theme: theme)
       datePickerView?.delegate = self
       inputView = datePickerView
     }
     
     inputAccessoryView = formToolbar
     formToolbar.toolbarDelegate = self
+    formToolbar.viewModel = type.fieldData.toolbarData
   }
 
 

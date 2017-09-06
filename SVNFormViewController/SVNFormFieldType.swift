@@ -77,6 +77,12 @@ public protocol SVNFormFieldDataSource {
   var hasToolTip: SVNFormTermsOverlayType? { get }
   
   var hasProtectedInformation: Bool { get }
+  
+  var toolbarData: SVNFormToolbarViewModel { get }
+  
+  var textFieldFont: UIFont { get }
+  
+  var textColor: UIColor { get }
 }
 
 

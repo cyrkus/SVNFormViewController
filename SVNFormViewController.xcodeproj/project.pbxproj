@@ -15,6 +15,7 @@
 		A1245AD31F58BDF90014E953 /* SVNFormDisclosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1245AD01F58BDF90014E953 /* SVNFormDisclosureButton.swift */; };
 		A1245AD41F58BDF90014E953 /* SVNFormFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1245AD11F58BDF90014E953 /* SVNFormFieldView.swift */; };
 		A1245AD51F58BDF90014E953 /* SVNFormToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1245AD21F58BDF90014E953 /* SVNFormToggleView.swift */; };
+		A15139641F6088D60027DF12 /* SVNFormToolbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15139631F6088D60027DF12 /* SVNFormToolbarViewModel.swift */; };
 		A17AA6C51F5F0CE100045C10 /* SVNBootstraper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17AA6C31F5F0CE100045C10 /* SVNBootstraper.framework */; };
 		A17AA6C61F5F0CE100045C10 /* SwiftEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17AA6C41F5F0CE100045C10 /* SwiftEssentials.framework */; };
 		A17AA6C81F5F0D3900045C10 /* SVNCheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AA6C71F5F0D3900045C10 /* SVNCheckMarkView.swift */; };
@@ -40,6 +41,7 @@
 		A1245AD01F58BDF90014E953 /* SVNFormDisclosureButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormDisclosureButton.swift; sourceTree = "<group>"; };
 		A1245AD11F58BDF90014E953 /* SVNFormFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormFieldView.swift; sourceTree = "<group>"; };
 		A1245AD21F58BDF90014E953 /* SVNFormToggleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormToggleView.swift; sourceTree = "<group>"; };
+		A15139631F6088D60027DF12 /* SVNFormToolbarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormToolbarViewModel.swift; sourceTree = "<group>"; };
 		A17AA6C31F5F0CE100045C10 /* SVNBootstraper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNBootstraper.framework; path = Carthage/Build/iOS/SVNBootstraper.framework; sourceTree = "<group>"; };
 		A17AA6C41F5F0CE100045C10 /* SwiftEssentials.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEssentials.framework; path = Carthage/Build/iOS/SwiftEssentials.framework; sourceTree = "<group>"; };
 		A17AA6C71F5F0D3900045C10 /* SVNCheckMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNCheckMarkView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				A1E7B3C41F58BD68004CE999 /* SVNFormDatePickerType.swift */,
 				A1E7B3C51F58BD68004CE999 /* SVNFormError.swift */,
 				A1E7B3C61F58BD68004CE999 /* SVNFormFieldType.swift */,
+				A15139631F6088D60027DF12 /* SVNFormToolbarViewModel.swift */,
 				A1E7B3C71F58BD68004CE999 /* SVNFormPickerType.swift */,
 				A1E7B3C91F58BD68004CE999 /* SVNTermsFieldType.swift */,
 				A1E7B3CA1F58BD68004CE999 /* SVNToggleType.swift */,
@@ -289,6 +292,7 @@
 				A118361E1EB1068300862332 /* SVNFormTextField.swift in Sources */,
 				A1E7B3CE1F58BD68004CE999 /* SVNFormPickerType.swift in Sources */,
 				A118361C1EB1068300862332 /* SVNFormVC.swift in Sources */,
+				A15139641F6088D60027DF12 /* SVNFormToolbarViewModel.swift in Sources */,
 				A1245AD31F58BDF90014E953 /* SVNFormDisclosureButton.swift in Sources */,
 				A17AA6DA1F5F569700045C10 /* SVNFormDatePicker.swift in Sources */,
 				A1E7B3D11F58BD68004CE999 /* SVNToggleType.swift in Sources */,

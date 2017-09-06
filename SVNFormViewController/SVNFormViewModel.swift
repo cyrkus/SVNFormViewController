@@ -9,7 +9,7 @@
 import UIKit
 import SwiftEssentials
 import SVNTextValidator
-
+import SVNTheme
 
 protocol SVNFormViewModelDelegate: class {
   func formWasValidated()
@@ -95,7 +95,7 @@ class SVNFormViewModel: NSObject {
       return SVNFormViewModel.ToggleFieldCellHeight
     }
     
-    if field.isTerms != nil {
+    if field.isCheckMarkField != nil {
       return SVNFormViewModel.CheckMarkFieldHeight
     }
     
@@ -119,13 +119,15 @@ class SVNFormViewModel: NSObject {
 
 
 extension SVNFormViewModel {
-  func createField(forRow row: Int) -> SVNFormFieldView {
+  func createField(forRow row: Int, theme: SVNTheme) -> SVNFormFieldView {
     let rowData = dataSource[row]
     
     if rowData.fieldData.hasToggle != nil {
       
-      let toggleField = SVNFormFieldView(fieldType: rowData, autoFillText: autoFillText[row],
-                                         placeholderText: rowData.fieldData.placeholder, disclosureDelegate: disclosureButtonDelegate)
+      let toggleField = SVNFormFieldView(toggleView: rowData, autoFillText: autoFillText[row],
+                                         placeholderText: rowData.fieldData.placeholder,
+                                         disclosureDelegate: disclosureButtonDelegate,
+                                         theme: theme)
       
       guard let rules = rowData.fieldData.validationRule else { return toggleField }
       
@@ -136,8 +138,8 @@ extension SVNFormViewModel {
     }
     
     
-    if let checkMarkData = rowData.fieldData.isCheckMarkField  {
-      let checkMarkField = SVNFormFieldView(checkMarkViewModel: checkMarkData, autoFillText: autoFillText[row])
+    if rowData.fieldData.isCheckMarkField  != nil {
+      let checkMarkField = SVNFormFieldView(checkMarkView: rowData, autoFillText: autoFillText[row], theme: theme)
       
       checkMarkField.delegate = formFieldViewDelegate
       
@@ -148,10 +150,10 @@ extension SVNFormViewModel {
       return checkMarkField
     }
     
-    
-    let textFormField = SVNFormFieldView(withTextFieldData: rowData, delegate: textFieldDelegate,
+
+    let textFormField = SVNFormFieldView(textField: rowData, delegate: textFieldDelegate,
                                          disclosureDelegate: disclosureButtonDelegate, autofillText: autoFillText[row],
-                                         svnformDelegate: formDelegate)
+                                         svnformDelegate: formDelegate, theme: theme)
     
     guard let rules = rowData.fieldData.validationRule else { return textFormField }
     

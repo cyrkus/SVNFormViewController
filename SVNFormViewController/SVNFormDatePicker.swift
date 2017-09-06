@@ -7,18 +7,25 @@
 //
 
 import UIKit
+import SVNTheme
 
 protocol SVNFormDatePickerDelegate: class {
   func datePicker(changedValue value:String)
 }
 
 class SVNFormDatePicker: UIDatePicker {
+  
   weak var delegate: SVNFormDatePickerDelegate?
+  
   var type: SVNFormDatePickerDataSource
+  
   var dayOfWeekLabel : UILabel!
   
-  init(frame: CGRect, type: SVNFormDatePickerDataSource) {
+  var theme: SVNTheme
+  
+  init(frame: CGRect, type: SVNFormDatePickerDataSource, theme: SVNTheme) {
     self.type = type
+    self.theme = theme
     super.init(frame: frame)
     setCalendar()
     setUpDatePicker()
@@ -36,8 +43,8 @@ class SVNFormDatePicker: UIDatePicker {
   private func setDayOfWeekView(){
     let width = UIWindow().bounds.width
     dayOfWeekLabel = UILabel(frame: CGRect(x: 0, y: frame.height - 25, width: width, height: 25))
-    dayOfWeekLabel.backgroundColor = Theme.Colors.buttonColor.color
-    dayOfWeekLabel.textColor = UIColor.white
+    dayOfWeekLabel.backgroundColor = theme.stanardButtonTintColor
+    dayOfWeekLabel.textColor = theme.primaryDialogColor
     dayOfWeekLabel.textAlignment = .center
     guard let dayOfWeek = getDayOfWeek() else { return }
     dayOfWeekLabel.text = dayOfWeek
@@ -71,7 +78,7 @@ class SVNFormDatePicker: UIDatePicker {
   
   private func setUpDatePicker(){
     addTarget(self, action:#selector(datePickerValueChanged), for: .valueChanged)
-    setValue(Theme.Colors.buttonColor.color, forKey: "textColor")
+    setValue(theme.stanardButtonTintColor, forKey: "textColor")
   }
   
   
