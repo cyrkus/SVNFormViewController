@@ -29,6 +29,7 @@ public protocol SVNFormFieldDataSource {
   var placeholder: String { get }
   
   /// The ValidationRule's of the field. Set to nil for optional fields
+  /// List in order of importantance i.e. [RequiredRule(), EmailRule()]
   /// - Remark: default is *[RequiredRule()]*
   var validationRule: [Rule]? { get }
   

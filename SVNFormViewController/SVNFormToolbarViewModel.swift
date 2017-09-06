@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol SVNFormToolbarViewModel: class {
+public protocol SVNFormToolbarViewModel {
   var tintColor: UIColor { get }
   var upChevron: UIImage { get }
   var downChevron: UIImage { get }
