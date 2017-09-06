@@ -17,13 +17,13 @@ protocol SVNFormField: class, Validatable {
 typealias SVNFormViewControllerDataSource = [SVNFormFieldType]
 
 
-protocol SVNFormFieldType {
+public protocol SVNFormFieldType {
   var fieldData: SVNFormFieldDataSource { get }
 }
 
 /// The protocol of all SVNFormFields
 /// Create instances that conform to this protocol to create the dataSource for SVNFormViewController's ViewModel
-protocol SVNFormFieldDataSource {
+public protocol SVNFormFieldDataSource {
   
   /// The Placeholder's Text for the field
   var placeholder: String { get }

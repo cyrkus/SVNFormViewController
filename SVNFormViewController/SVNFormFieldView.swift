@@ -8,13 +8,14 @@
 
 import UIKit
 import SVNTheme
+import SVNBootstraper
 
 public enum SVNFieldType {
   case toggle, textField, checkMark
 }
 
 protocol SVNFormFieldViewDelegate: class {
-  func onCheckMarkLabelTap()
+  func onCheckMarkLabelTap(withType type: SVNFormFieldType)
 }
 
 public class SVNFormFieldView: UIView, FinePrintCreatable {
@@ -66,30 +67,34 @@ public class SVNFormFieldView: UIView, FinePrintCreatable {
   
   fileprivate var theme: SVNTheme
   
-  init(withTextFieldData data: SVNFormFieldType, delegate: UITextFieldDelegate, disclosureDelegate: SVNFormDisclosureButtonDelegate, autofillText: String, svnformDelegate: SVNFormTextFieldDelegate, theme: SVNTheme = SVNTheme_DefaultDark()){
+  public init(withTextFieldData data: SVNFormTextFieldViewModel, delegate: UITextFieldDelegate, disclosureDelegate: SVNFormDisclosureButtonDelegate, autofillText: String, svnformDelegate: SVNFormTextFieldDelegate, theme: SVNTheme = SVNTheme_DefaultDark()){
     self.theme = theme
     super.init(frame: CGRect.zero)
     
     type = .textField
-    textField.setView(forType: data, formDelegate: svnformDelegate, textFieldDelegate: delegate, autoFillText:  autofillText)
+    textField.setView(withViewModel: data, formDelegate: svnformDelegate, textFieldDelegate: delegate, autoFillText:  autofillText)
     
-    placeholder.standardText = data.fieldData.placeholder
+    placeholder.standardText = data.type.fieldData.placeholder
     placeholder.refreshView()
     
-    addToolTip(for: data, disclosureDelegate: disclosureDelegate)
+    addToolTip(for: data.type, disclosureDelegate: disclosureDelegate)
     
     setBorderStyling()
   }
   
   
-  init(withCheckMarkData fieldType: SVNFormFieldType, autoFillText: String){
+  public init(checkMarkViewModel: SVNFormCheckMarkViewModel, autoFillText: String, theme: SVNTheme = SVNTheme_DefaultDark()){
+    self.theme = theme
     super.init(frame: CGRect.zero)
+    
     type = .checkMark
-    checkMarkView.setView(asType: fieldType, isChecked: autoFillText != "")
-    termsLabel.attributedText = createFinePrintAttributedString(withStrings: fieldType.fieldData.isTerms!.data.terms,
-                                                                linkFont: Theme.Fonts.finePrintSM.font,
-                                                                textColor: Theme.Colors.darkText.color,
-                                                                linkColor: Theme.Colors.buttonColor.color, alignment: .left)
+    
+    checkMarkView.setView(asType: checkMarkViewModel.type, isChecked: autoFillText != "")
+    
+    termsLabel.attributedText = createFinePrintAttributedString(withParagraph: checkMarkViewModel.finePrintParagraph,
+                                                                linkFont: theme.smallHeading, textColor: theme.primaryDialogColor,
+                                                                linkColor: theme.tertiaryDialogColor, alignment: checkMarkViewModel.finePrintAlignment)
+    
     termsLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTermsLabelTap)))
   }
   
@@ -166,7 +171,7 @@ public class SVNFormFieldView: UIView, FinePrintCreatable {
   }
   
   @objc private func onTermsLabelTap(){
-    delegate.onCheckMarkLabelTap()
+    delegate.onCheckMarkLabelTap(withType: checkMarkView.type)
   }
   
   private func setBorderStyling(){

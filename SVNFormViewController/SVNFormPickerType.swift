@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol SVNFormPickerType {
+public protocol SVNFormPickerType {
   var data: SVNFormPickerDataSource { get }
 }
 
 
-protocol SVNFormPickerDataSource {
+public protocol SVNFormPickerDataSource {
   var content: [String] { get set }
 }

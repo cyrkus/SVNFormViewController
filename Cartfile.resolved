@@ -1,6 +1,6 @@
 github "bikisDesign/Swift-Essentials" "996b412dad56ac8429e6db5ca24b23d8a4826073"
-github "sevenapps/SVNMaterialButton" "9986c151843d30c42e3b7b8f2a3c8f46b8245345"
+github "sevenapps/SVNMaterialButton" "v1.1.0"
 github "sevenapps/SVNShapesManager" "cdf7e9a821374a28405f41aac4d0799db00ab8f7"
 github "sevenapps/SVNTextValidator" "d0f4a01dd75e565f354a3e977259a1a0a363b737"
 github "sevenapps/SVNTheme" "d6a2659baf58cc75c43cf857631dd991bd1798af"
-github "sevenapps/SVNiOSBootstraper" "86656755c812eaf0e335f71fe2d726e8f0e37a7a"
+github "sevenapps/SVNiOSBootstraper" "e0887a5e0c0acf7c9e093632b0536fa406947fee"

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SVNFormDisclosureButtonDelegate: class {
+public protocol SVNFormDisclosureButtonDelegate: class {
   func onDisclosureButtonTap(alertViewPresentationData data: SVNFormTermsOverlayDataSource?)
 }
 

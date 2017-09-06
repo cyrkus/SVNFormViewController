@@ -8,6 +8,16 @@
 
 import UIKit
 import SVNBootstraper
+import SVNMaterialButton
+import SVNTheme
+
+
+public protocol SVNFormTextFieldViewModel: class {
+  var toolbarViewModel: SVNFormToolbarViewModel { get }
+  var textFieldFont: UIFont { get }
+  var textColor: UIColor { get }
+  var type: SVNFormFieldType { get }
+}
 
 protocol SVNFormTextFieldDelegate: class {
   func forwardingToolbarStateChange(withState state: SVNFormToolbarState, sender: SVNFormTextField)
@@ -25,7 +35,7 @@ final class SVNFormTextField: UITextField, SVNFormField {
   
   class var StandardHeight: CGFloat {
     get {
-      return LWLargeButton.standardHeight - SVNFormPlaceholderLabel.StandardHeight
+      return SVNMaterialButton.standardHeight - SVNFormPlaceholderLabel.StandardHeight
     }
   }
   
@@ -34,19 +44,21 @@ final class SVNFormTextField: UITextField, SVNFormField {
   
   var type: SVNFormFieldType!
   
-  lazy var formToolbar: SVNFormToolBar = SVNFormToolBar()
+  lazy var formToolbar: SVNFormToolBar = SVNFormToolBar(viewModel: self.viewModel.toolbarViewModel)
   
   var pickerView: SVNFormPickerView?
   
-  var datePickerView: LWDatePicker?
+  var datePickerView: SVNFormDatePicker?
   
-  func setView(forType type: SVNFormFieldType, formDelegate: SVNFormTextFieldDelegate, textFieldDelegate: UITextFieldDelegate? = nil, autoFillText: String){
+  private var viewModel: SVNFormTextFieldViewModel!
+  
+  func setView(withViewModel viewModel: SVNFormTextFieldViewModel, formDelegate: SVNFormTextFieldDelegate, textFieldDelegate: UITextFieldDelegate? = nil, autoFillText: String){
     isPristine = true
-    self.type = type
+    self.type = viewModel.type
     self.formDelegate = formDelegate
     delegate = textFieldDelegate
-    font = Theme.Fonts.textField.font
-    textColor = Theme.Colors.darkText.color
+    font = viewModel.textFieldFont
+    textColor = viewModel.textColor
     keyboardType = type.fieldData.keyboardType
     isSecureTextEntry = type.fieldData.isSecureEntry
     autocorrectionType = type.fieldData.hasAutoCorrection
@@ -65,7 +77,7 @@ final class SVNFormTextField: UITextField, SVNFormField {
     }
     
     if let datePickerType = type.fieldData.hasDatePicker {
-      datePickerView = LWDatePicker(frame: CGRect.zero, type: datePickerType.data)
+      datePickerView = SVNFormDatePicker(frame: CGRect.zero, type: datePickerType.data)
       datePickerView?.delegate = self
       inputView = datePickerView
     }
@@ -100,7 +112,7 @@ extension SVNFormTextField: SVNFormPickerViewDelegate {
   }
 }
 
-extension SVNFormTextField: LWDatePickerDelegate {
+extension SVNFormTextField: SVNFormDatePickerDelegate {
   func datePicker(changedValue value: String) {
     text = value
   }

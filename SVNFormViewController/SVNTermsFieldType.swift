@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol SVNFormTermsFieldType {
+public protocol SVNFormTermsFieldType {
   var data: SVNFormTermsFieldDataSource { get }
 }
 
-protocol SVNFormTermsFieldDataSource {
+public protocol SVNFormTermsFieldDataSource {
   var terms: [String] { get }
   
   var checkMarkColor: UIColor { get }

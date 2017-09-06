@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol SVNFormDatePickerType {
+public protocol SVNFormDatePickerType {
   var data: SVNFormDatePickerDataSource { get }
 }
 
-protocol SVNFormDatePickerDataSource {
+public protocol SVNFormDatePickerDataSource {
   
   var datePickerMode: UIDatePickerMode { get }
   

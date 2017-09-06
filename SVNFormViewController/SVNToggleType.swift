@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol SVNToggleType {
+public protocol SVNToggleType {
   var data: SVNToggleDataSource { get }
 }
 
-protocol SVNToggleDataSource {
+public protocol SVNToggleDataSource {
   var titles: (String, String) { get }
   
   var font: UIFont { get }

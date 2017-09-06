@@ -7,15 +7,16 @@
 //
 
 import Foundation
+import SVNMaterialButton
 
-protocol SVNFormTermsOverlayType {
+public protocol SVNFormTermsOverlayType {
   var data: SVNFormTermsOverlayDataSource { get }
 }
 
-protocol SVNFormTermsOverlayDataSource {
+public protocol SVNFormTermsOverlayDataSource {
   var body: [String] { get }
   var agreeText: String { get }
-  var buttonData: LWLargeButtonDataSource? { get }
+  var buttonData: SVNMaterialButtonViewModel? { get }
   var font: UIFont { get }
   var image: UIImage? { get }
 }

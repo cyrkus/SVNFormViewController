@@ -49,6 +49,9 @@ protocol SVNFormViewControllerDelegate: class {
   /// notifies the receiver that a textField's text changed. Perform all changes in input here.
   /// i.e. zip code length restrictions, hypenation ...ect
   func forwarding(_ textField: SVNFormTextField, shouldChangeCharecters range: NSRange, replacement string: String) -> Bool
+  
+  
+  func forwardingOnCheckMarkViewDetailsLabelTap(_ checkMarkViewType: SVNFormFieldType)
 }
 
 
@@ -221,10 +224,10 @@ extension SVNFormViewController: SVNFormTextFieldDelegate {
   }
 }
 
-extension SVNFormViewController: SVNFormFieldViewDelegate, TermsActionSheetPresentable {
-  func onCheckMarkLabelTap() {
+extension SVNFormViewController: SVNFormFieldViewDelegate {
+  func onCheckMarkLabelTap(withType type: SVNFormFieldType) {
     view.endEditing(true)
-    presentTermsSheetActionAlert()
+    delegate.forwardingOnCheckMarkViewDetailsLabelTap(type)
   }
 }
 
