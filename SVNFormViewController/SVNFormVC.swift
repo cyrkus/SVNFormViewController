@@ -23,7 +23,7 @@ import SVNMaterialButton
  When resizing this viewController make sure to resize the tableview contained within it.
  */
 
-protocol SVNFormViewControllerDelegate: class {
+public protocol SVNFormViewControllerDelegate: class {
   /// notifies the receiver that the full form was validated
   /// - Parameter text: A String Array matching the supplied SVNFormViewControllerDataSource in indexing
   func formWasValidated(withText text: [String])
@@ -55,7 +55,7 @@ protocol SVNFormViewControllerDelegate: class {
 }
 
 
-class SVNFormViewController: UIViewController {
+public class SVNFormViewController: UIViewController {
   
   lazy var scrollView: UIScrollView = {
     let scroll = UIScrollView()
@@ -68,7 +68,7 @@ class SVNFormViewController: UIViewController {
   
   fileprivate var buttonViewModel: SVNMaterialButtonViewModel
   
-  weak var delegate: SVNFormViewControllerDelegate!
+  public weak var delegate: SVNFormViewControllerDelegate!
   
   fileprivate lazy var formFields = [SVNFormFieldView]()
   
@@ -97,14 +97,14 @@ class SVNFormViewController: UIViewController {
     self.delegate = delegate
   }
   
-  required init?(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     fatalError()
   }
   
   fileprivate var previousStaticScrollViewContentOffSet = CGPoint(x: 0, y: 0)
   
   
-  override func viewDidLayoutSubviews() {
+  override public func viewDidLayoutSubviews() {
     
     scrollView.frame = view.bounds
     
@@ -116,7 +116,7 @@ class SVNFormViewController: UIViewController {
   }
   
   
-  override func viewDidLoad() {
+  override public func viewDidLoad() {
     super.viewDidLoad()
     
     viewModel.setStyleTransformers(success: { (rule) in
@@ -142,7 +142,7 @@ class SVNFormViewController: UIViewController {
   }
   
   
-  func reload(data dataSource: SVNFormViewControllerDataSource, autofillData: [String]? = nil){
+  public func reload(data dataSource: SVNFormViewControllerDataSource, autofillData: [String]? = nil){
     formFieldFrames.removeAll()
     formFields.forEach({ $0.removeFromSuperview() })
     formFields.removeAll()
@@ -153,7 +153,7 @@ class SVNFormViewController: UIViewController {
   }
   
   
-  func updateTextField(atIndex index: Int, text: String, type: SVNFieldType){
+  public func updateTextField(atIndex index: Int, text: String, type: SVNFieldType){
     DispatchQueue.main.async { // can be called by an API
       switch type {
       case .toggle:
@@ -210,7 +210,7 @@ class SVNFormViewController: UIViewController {
 
 
 extension SVNFormViewController: SVNFormTextFieldDelegate {
-  func forwardingToolbarStateChange(withState state: SVNFormToolbarState, sender: SVNFormTextField) {
+  public func forwardingToolbarStateChange(withState state: SVNFormToolbarState, sender: SVNFormTextField) {
     switch state {
     case .dismiss:
       sender.resignFirstResponder()
@@ -225,7 +225,7 @@ extension SVNFormViewController: SVNFormTextFieldDelegate {
 }
 
 extension SVNFormViewController: SVNFormFieldViewDelegate {
-  func onCheckMarkLabelTap(withType type: SVNFormFieldType) {
+  public func onCheckMarkLabelTap(withType type: SVNFormFieldType) {
     view.endEditing(true)
     delegate.forwardingOnCheckMarkViewDetailsLabelTap(type)
   }
@@ -233,12 +233,12 @@ extension SVNFormViewController: SVNFormFieldViewDelegate {
 
 
 extension SVNFormViewController: UITextFieldDelegate {
-  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+  public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     guard let tf = textField as? SVNFormTextField else { fatalError(SVNFormError.notTextFieldSubclass.localizedDescription) }
     return delegate.forwarding(tf, shouldChangeCharecters: range, replacement: string)
   }
   
-  func textFieldDidBeginEditing(_ textField: UITextField) {
+  public func textFieldDidBeginEditing(_ textField: UITextField) {
     guard let tf = textField as? SVNFormTextField else { fatalError(SVNFormError.notTextFieldSubclass.localizedDescription) }
     if tf.type.fieldData.hasProtectedInformation {
       tf.text = ""
@@ -246,13 +246,13 @@ extension SVNFormViewController: UITextFieldDelegate {
   }
   
   
-  func textFieldDidEndEditing(_ textField: UITextField) {
+  public func textFieldDidEndEditing(_ textField: UITextField) {
     guard let tf = textField as? SVNFormTextField else { fatalError(SVNFormError.notTextFieldSubclass.localizedDescription) }
     viewModel.validate(field: tf)
   }
   
   
-  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+  public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     setNextResponder(currentResponder: textField, incrementing: true)
     return true
   }
@@ -283,7 +283,7 @@ extension SVNFormViewController: UITextFieldDelegate {
 
 
 extension SVNFormViewController: SVNFormDisclosureButtonDelegate {
-  func onDisclosureButtonTap(alertViewPresentationData data: SVNFormTermsOverlayDataSource?) {
+  public func onDisclosureButtonTap(alertViewPresentationData data: SVNFormTermsOverlayDataSource?) {
     view.endEditing(true)
     guard let tooltipData = data else { return }
     delegate.forwardingOnToolTipTap(withData: tooltipData)
@@ -328,7 +328,7 @@ extension SVNFormViewController: SVNFormViewModelDelegate {
 extension SVNFormViewController: UIScrollViewDelegate {
   //MARK: ScrollView Delegate
   
-  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+  public func scrollViewDidScroll(_ scrollView: UIScrollView) {
     delegate.scrollViewContentOffset(isZero: scrollView.contentOffset == CGPoint.zero)
   }
 }

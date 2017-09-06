@@ -19,7 +19,7 @@ public protocol SVNFormDatePickerDataSource {
   var minDate: Date { get }
 }
 
-extension SVNFormDatePickerDataSource {
+public extension SVNFormDatePickerDataSource {
   
   var datePickerMode: UIDatePickerMode { return .date }
   
