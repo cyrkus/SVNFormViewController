@@ -16,7 +16,11 @@ import SVNBootstraper
 public protocol SVNFormCheckMarkViewModel {
   var terms: [String] { get }
   
-  var checkMarkColor: UIColor { get }
+  var checkMarkColor: CGColor { get }
+  
+  var checkBoxColor: CGColor { get }
+  
+  var erroredCheckBoxColor: CGColor { get }
   
   var font: UIFont { get }
   
@@ -25,4 +29,10 @@ public protocol SVNFormCheckMarkViewModel {
   var finePrintParagraph: [FinePrintAttibutedString] { get }
   
    var finePrintAlignment: NSTextAlignment { get }
+  
+  var finePrintFont: UIFont { get }
+  
+  var finePrintLinkColor: UIColor { get }
+  
+  var finePrintTextColor: UIColor { get }
 }

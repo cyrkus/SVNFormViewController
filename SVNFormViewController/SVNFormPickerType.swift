@@ -20,4 +20,6 @@ public protocol SVNFormPickerType {
 public protocol SVNFormPickerDataSource {
   /// the content of the picker view
   var content: [String] { get set }
+  
+  var font: UIFont { get }
 }

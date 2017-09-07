@@ -8,11 +8,10 @@
 
 import UIKit
 import SVNBootstraper
-import SVNTheme
 
 class SVNFormPlaceholderLabel: UILabel {
   
-  var standardText: String?
+  private var standardText: String?
   
   class var StandardHeight: CGFloat {
     get {
@@ -34,20 +33,18 @@ class SVNFormPlaceholderLabel: UILabel {
     }
   }
   
-  var theme: SVNTheme
+  var viewModel: SVNFormPlaceholderViewModel!
   
-  init(theme: SVNTheme){
-    self.theme = theme
-    super.init(frame: CGRect.zero)
+  func setView(withViewModel vm: SVNFormPlaceholderViewModel, text: String){
+    standardText = text
     textAlignment = .left
-    font = theme.smallHeading
-    textColor = theme.primaryDialogColor
+    font = vm.font
+    textColor = vm.textColor
   }
-  required init?(coder aDecoder: NSCoder) { fatalError() }
   
   
   func refreshView(){
-    textColor = hasErrorMessage != nil ? theme.declineButtonTintColor : theme.acceptButtonTintColor
+    textColor = hasErrorMessage != nil ? viewModel.erroredTextColor : viewModel.textColor
     if hasErrorMessage == "Required" {
       guard let stockText = standardText else { return }
       if stockText.characters.last == "?" {

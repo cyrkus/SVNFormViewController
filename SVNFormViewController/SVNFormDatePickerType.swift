@@ -23,6 +23,18 @@ public protocol SVNFormDatePickerDataSource {
   /// the date for the date picker to initially show
   /// default is set to the current Date()
   var startDate: Date { get }
+  
+  /// the background color of the pickerView
+  var backgroundColor: UIColor { get }
+  
+  // the textColor of the pickerView items
+  var textColor: UIColor { get }
+  
+  /// the textColor of the bottom label that displays the selected day of the week
+  var dayOfWeekTextColor: UIColor { get }
+  
+  /// the backgroundColor of the bottom label that displays the selected day of the week
+  var dayOfWeekBackgroundColor: UIColor { get }
 }
 
 public extension SVNFormDatePickerDataSource {

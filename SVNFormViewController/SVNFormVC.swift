@@ -10,7 +10,6 @@ import SVNTextValidator
 import SVNShapesManager
 import SVNBootstraper
 import SwiftEssentials
-import SVNTheme
 import SVNMaterialButton
 
 /**
@@ -78,8 +77,6 @@ public class SVNFormViewController: UIViewController {
   
   fileprivate var fieldYpadding: CGFloat = 15
   
-  private var theme: SVNTheme!
-  
   fileprivate var previousStaticScrollViewContentOffSet = CGPoint(x: 0, y: 0)
   
   
@@ -91,11 +88,10 @@ public class SVNFormViewController: UIViewController {
   }()
   
   
-  public init(withData dataSource: SVNFormViewControllerDataSource, buttonViewModel: SVNMaterialButtonViewModel, delegate: SVNFormViewControllerDelegate, theme: SVNTheme? = SVNTheme_DefaultDark()){
+  public init(withData dataSource: SVNFormViewControllerDataSource, buttonViewModel: SVNMaterialButtonViewModel, delegate: SVNFormViewControllerDelegate){
     viewModel = SVNFormViewModel(dataSource: dataSource)
     self.buttonViewModel = buttonViewModel
     super.init(nibName: nil, bundle: nil)
-    self.theme = theme
     self.delegate = delegate
   }
   required public init?(coder aDecoder: NSCoder) {
@@ -175,7 +171,7 @@ public class SVNFormViewController: UIViewController {
     
     for i in 0..<viewModel.numberOfFields {
       
-      let field = viewModel.createField(forRow: i, theme: theme)
+      let field = viewModel.createField(forRow: i)
       
       let height = viewModel.getHeightForCell(atRow: i)
       

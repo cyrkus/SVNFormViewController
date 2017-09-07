@@ -119,15 +119,13 @@ class SVNFormViewModel: NSObject {
 
 
 extension SVNFormViewModel {
-  func createField(forRow row: Int, theme: SVNTheme) -> SVNFormFieldView {
+  func createField(forRow row: Int) -> SVNFormFieldView {
     let rowData = dataSource[row]
     
     if rowData.fieldData.hasToggle != nil {
       
       let toggleField = SVNFormFieldView(toggleView: rowData, autoFillText: autoFillText[row],
-                                         placeholderText: rowData.fieldData.placeholder,
-                                         disclosureDelegate: disclosureButtonDelegate,
-                                         theme: theme)
+                                         disclosureDelegate: disclosureButtonDelegate)
       
       guard let rules = rowData.fieldData.validationRule else { return toggleField }
       
@@ -139,7 +137,7 @@ extension SVNFormViewModel {
     
     
     if rowData.fieldData.isCheckMarkField  != nil {
-      let checkMarkField = SVNFormFieldView(checkMarkView: rowData, autoFillText: autoFillText[row], theme: theme)
+      let checkMarkField = SVNFormFieldView(checkMarkView: rowData, autoFillText: autoFillText[row])
       
       checkMarkField.delegate = formFieldViewDelegate
       
@@ -153,12 +151,12 @@ extension SVNFormViewModel {
 
     let textFormField = SVNFormFieldView(textField: rowData, delegate: textFieldDelegate,
                                          disclosureDelegate: disclosureButtonDelegate, autofillText: autoFillText[row],
-                                         svnformDelegate: formDelegate, theme: theme)
+                                         svnformDelegate: formDelegate)
     
     guard let rules = rowData.fieldData.validationRule else { return textFormField }
     
     validator.registerField(textFormField.textField, errorLabel: textFormField.placeholder,
-                            rules: rules)
+                            rules: rules) 
     return textFormField
   }
 }

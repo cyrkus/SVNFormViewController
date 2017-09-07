@@ -9,7 +9,6 @@
 import UIKit
 import SVNBootstraper
 import SVNMaterialButton
-import SVNTheme
 
 
 public protocol SVNFormTextFieldDelegate: class {
@@ -43,10 +42,8 @@ open class SVNFormTextField: UITextField, SVNFormField {
   
   var datePickerView: SVNFormDatePicker?
   
-  var theme: SVNTheme!
   
-  
-  public func setView(for type: SVNFormFieldType, formDelegate: SVNFormTextFieldDelegate, textFieldDelegate: UITextFieldDelegate? = nil, autoFillText: String, theme: SVNTheme){
+  public func setView(for type: SVNFormFieldType, formDelegate: SVNFormTextFieldDelegate, textFieldDelegate: UITextFieldDelegate? = nil, autoFillText: String){
     isPristine = true
     self.type = type
     self.formDelegate = formDelegate
@@ -65,13 +62,13 @@ open class SVNFormTextField: UITextField, SVNFormField {
     #endif
     
     if let pickerData = type.fieldData.hasPickerView {
-      pickerView = SVNFormPickerView(frame: CGRect.zero, data: pickerData.data, theme: theme)
+      pickerView = SVNFormPickerView(frame: CGRect.zero, data: pickerData.data)
       pickerView?.formPickerDelegate = self
       inputView = pickerView
     }
     
     if let datePickerType = type.fieldData.hasDatePicker {
-      datePickerView = SVNFormDatePicker(frame: CGRect.zero, type: datePickerType.data, theme: theme)
+      datePickerView = SVNFormDatePicker(frame: CGRect.zero, type: datePickerType.data)
       datePickerView?.delegate = self
       inputView = datePickerView
     }

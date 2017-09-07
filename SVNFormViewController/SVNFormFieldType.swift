@@ -19,6 +19,10 @@ public typealias SVNFormViewControllerDataSource = [SVNFormFieldType]
 
 public protocol SVNFormFieldType {
   var fieldData: SVNFormFieldDataSource { get }
+  
+  var fieldBorderColor: CGColor { get }
+  
+  var fieldBorderWidth: CGFloat { get }
 }
 
 /// The protocol of all SVNFormFields
@@ -26,7 +30,11 @@ public protocol SVNFormFieldType {
 public protocol SVNFormFieldDataSource {
   
   /// The Placeholder's Text for the field
-  var placeholder: String { get }
+  var placeholderText: String { get }
+  
+  /// The view Model of the field's placeholder 
+  /// - Remark: See *SVNFormPlaceholderViewModel* for more information
+  var placeholderViewModel: SVNFormPlaceholderViewModel { get }
   
   /// The ValidationRule's of the field. Set to nil for optional fields
   /// List in order of importantance i.e. [RequiredRule(), EmailRule()]

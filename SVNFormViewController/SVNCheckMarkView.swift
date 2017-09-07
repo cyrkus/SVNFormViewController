@@ -10,7 +10,6 @@ import UIKit
 import SVNShapesManager
 import SVNTextValidator
 import SVNBootstraper
-import SVNTheme
 
 
 class SVNFormCheckMarkView: UIView, SVNFormField {
@@ -43,12 +42,6 @@ class SVNFormCheckMarkView: UIView, SVNFormField {
   
   var type: SVNFormFieldType!
   
-  fileprivate var theme: SVNTheme {
-    didSet {
-      checkmarkMeta.stroke = theme.acceptButtonTintColor.cgColor
-    }
-  }
-  
   var hasErrorMessage: String {
     didSet {
       animateError(isError: hasErrorMessage != "")
@@ -68,8 +61,7 @@ class SVNFormCheckMarkView: UIView, SVNFormField {
   }
   
   
-  init(theme: SVNTheme){
-    self.theme = theme
+  init(){
     hasErrorMessage = ""
     super.init(frame: CGRect.zero)
     setupContainer()
@@ -89,9 +81,10 @@ class SVNFormCheckMarkView: UIView, SVNFormField {
     self.isChecked = isChecked
   }
   
+  
   private func setupContainer() {
     backgroundColor = .clear
-    layer.borderColor = theme.navigationBarColor.cgColor
+    layer.borderColor = type.fieldData.isCheckMarkField?.checkBoxColor
     layer.borderWidth = 0.5
     let tgr = UITapGestureRecognizer(target: self, action: #selector(didTapContainer))
     addGestureRecognizer(tgr)
@@ -101,7 +94,7 @@ class SVNFormCheckMarkView: UIView, SVNFormField {
   func animateError(isError: Bool){
     let fromWidth = layer.borderWidth
     let toWidth: CGFloat = isError ? 5.0 : 0.5
-    let toColor: CGColor = isError ? theme.declineButtonTintColor.cgColor : theme.acceptButtonTintColor.cgColor
+    let toColor: CGColor = isError ? type.fieldData.isCheckMarkField!.erroredCheckBoxColor : type.fieldData.isCheckMarkField!.checkBoxColor
     CATransaction.begin()
     let colorAnim = CABasicAnimation(keyPath: "borderColor")
     colorAnim.duration = 0.25
@@ -147,7 +140,7 @@ class SVNFormCheckMarkView: UIView, SVNFormField {
   
   
   private func createCheckMark(){
-    
+    checkmarkMeta.stroke = type.fieldData.isCheckMarkField!.checkMarkColor
     checkmarkMeta.shapes?.forEach({ $0.removeFromSuperlayer() }) // remove them if they exist before adding them again as this is called when laying out subviews
     checkmarkMeta.shapes = nil
     

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVNTheme
 
 public protocol SVNFormToolBarDelegate : class {
   func onStateChange(state: SVNFormToolbarState)
