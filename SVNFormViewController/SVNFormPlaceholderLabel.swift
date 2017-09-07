@@ -36,6 +36,7 @@ class SVNFormPlaceholderLabel: UILabel {
   var viewModel: SVNFormPlaceholderViewModel!
   
   func setView(withViewModel vm: SVNFormPlaceholderViewModel, text: String){
+    self.viewModel = vm
     standardText = text
     textAlignment = .left
     font = vm.font
