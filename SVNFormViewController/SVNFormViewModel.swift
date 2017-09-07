@@ -175,7 +175,7 @@ extension SVNFormViewModel: ValidationDelegate {
   }
   
   
-  func validationSuccessful() {
+  public func validationSuccessful() {
     #if DEBUG_DEV || DEBUG_PROD
       print("validation Sucessful")
     #endif
@@ -183,7 +183,7 @@ extension SVNFormViewModel: ValidationDelegate {
   }
   
   
-  func validationFailed(_ errors: [(Validatable, ValidationError)]) {
+  public func validationFailed(_ errors: [(Validatable, ValidationError)]) {
     delegate?.formWasInvalid(error: errors)
   }
   
