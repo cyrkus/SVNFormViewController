@@ -20,7 +20,7 @@ protocol SVNFormViewModelDelegate: class {
 
 /// The ViewModel of SVNFormViewController's tableview
 /// To supply data to the ViewModel create a complete *SVNFormViewControllerDataSource*
-class SVNFormViewModel: NSObject {
+public class SVNFormViewModel: NSObject {
   
   //MARK: Delegates
   weak var delegate: SVNFormViewModelDelegate?
@@ -35,19 +35,19 @@ class SVNFormViewModel: NSObject {
   
   
   //MARK: Class variables
-  class var TextFieldCellHeight: CGFloat {
+  public class var TextFieldCellHeight: CGFloat {
     get {
       return SVNFormTextField.StandardHeight + SVNFormPlaceholderLabel.StandardHeight
     }
   }
   
-  class var ToggleFieldCellHeight: CGFloat {
+  public class var ToggleFieldCellHeight: CGFloat {
     get {
       return SVNFormToggleView.StandardHeight + SVNFormPlaceholderLabel.StandardHeight + SVNFormToggleView.PlaceHolderPadding
     }
   }
   
-  class var CheckMarkFieldHeight: CGFloat {
+  public class var CheckMarkFieldHeight: CGFloat {
     get {
       return SVNFormCheckMarkView.StandardHeight
     }
@@ -55,7 +55,7 @@ class SVNFormViewModel: NSObject {
   
   
   //MARK: Data
-  var numberOfFields: Int {
+  public var numberOfFields: Int {
     get {
       return dataSource.count
     }

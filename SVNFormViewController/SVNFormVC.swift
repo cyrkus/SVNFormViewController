@@ -12,15 +12,6 @@ import SVNBootstraper
 import SwiftEssentials
 import SVNMaterialButton
 
-/**
- A View Controller containing a tableview set to the bounds of the viewController
- Intended to be set as a child of another View Controller.
- To initlize this VC call init(theme:, dataSource: nibNamed:, bundleNamed:)
- To validate textFields call validator.validate()
- Reference didValidateAllFields([LWFormFieldType: String]) as a callback to a sucessful validation
- Tapping Go on the return key type will attempt to validate the textFields resulting in didValidateAllFields being called if successful
- When resizing this viewController make sure to resize the tableview contained within it.
- */
 
 public protocol SVNFormViewControllerDelegate: class {
   /// notifies the receiver that the full form was validated
@@ -53,7 +44,15 @@ public protocol SVNFormViewControllerDelegate: class {
   func forwardingOnCheckMarkViewDetailsLabelTap(_ checkMarkViewType: SVNFormFieldType)
 }
 
-
+/**
+ A View Controller containing a tableview set to the bounds of the viewController
+ Intended to be set as a child of another View Controller.
+  To initlize this VC call init(theme:, dataSource: nibNamed:, bundleNamed:)
+ To validate textFields call validator.validate()
+ Reference didValidateAllFields([LWFormFieldType: String]) as a callback to a sucessful validation
+ Tapping Go on the return key type will attempt to validate the textFields resulting in didValidateAllFields being called if successful
+ When resizing this viewController make sure to resize the tableview contained within it.
+ */
 public class SVNFormViewController: UIViewController {
   
   lazy var scrollView: UIScrollView = {
