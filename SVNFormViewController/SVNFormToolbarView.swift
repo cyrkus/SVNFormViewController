@@ -25,6 +25,7 @@ class SVNFormToolBar: UIToolbar {
   var viewModel: SVNFormToolbarViewModel! {
     didSet {
       addButtons()
+      tintColor = viewModel.tintColor
     }
   }
   
@@ -32,7 +33,6 @@ class SVNFormToolBar: UIToolbar {
     super.init(frame: frame)
     barStyle = UIBarStyle.default
     isTranslucent = true
-    tintColor = viewModel.tintColor
     sizeToFit()
   }
   required init?(coder aDecoder: NSCoder) {

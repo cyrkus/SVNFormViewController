@@ -80,6 +80,8 @@ public class SVNFormViewController: UIViewController {
   
   private var theme: SVNTheme!
   
+  fileprivate var previousStaticScrollViewContentOffSet = CGPoint(x: 0, y: 0)
+  
   
   lazy var validationButton: SVNMaterialButton = {
     let button = SVNMaterialButton(frame: CGRect.zero, viewModel: self.buttonViewModel)
@@ -96,12 +98,9 @@ public class SVNFormViewController: UIViewController {
     self.theme = theme
     self.delegate = delegate
   }
-  
   required public init?(coder aDecoder: NSCoder) {
-    fatalError()
+    fatalError("this framework doesn't currently support init:(coder")
   }
-  
-  fileprivate var previousStaticScrollViewContentOffSet = CGPoint(x: 0, y: 0)
   
   
   override public func viewDidLayoutSubviews() {
