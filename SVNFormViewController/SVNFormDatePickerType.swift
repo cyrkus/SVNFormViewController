@@ -10,20 +10,26 @@ import UIKit
 
 public protocol SVNFormDatePickerType {
   var data: SVNFormDatePickerDataSource { get }
+  /// the image to be displayed in the textfield
+  var detailDisclosureImage: UIImage? { get }
+
 }
 
 public protocol SVNFormDatePickerDataSource {
-  
+  /// the UIDatePickerMode of the date picker 
+  /// default is set to .date
   var datePickerMode: UIDatePickerMode { get }
   
-  var minDate: Date { get }
+  /// the date for the date picker to initially show
+  /// default is set to the current Date()
+  var startDate: Date { get }
 }
 
 public extension SVNFormDatePickerDataSource {
   
   var datePickerMode: UIDatePickerMode { return .date }
   
-  var minDate: Date {
+  var startDate: Date {
     let cal = Calendar(identifier: .gregorian)
     return cal.date(byAdding: DateComponents(), to: Date())!
   }

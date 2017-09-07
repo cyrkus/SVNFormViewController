@@ -106,11 +106,11 @@
 			children = (
 				A15139621F6085430027DF12 /* FormModel */,
 				A17AA6D11F5F2C4100045C10 /* SVNFormOverlayViewModel.swift */,
-				A1E7B3C41F58BD68004CE999 /* SVNFormDatePickerType.swift */,
 				A1E7B3C51F58BD68004CE999 /* SVNFormError.swift */,
 				A1E7B3C61F58BD68004CE999 /* SVNFormFieldType.swift */,
 				A15139631F6088D60027DF12 /* SVNFormToolbarViewModel.swift */,
 				A1E7B3C71F58BD68004CE999 /* SVNFormPickerType.swift */,
+				A1E7B3C41F58BD68004CE999 /* SVNFormDatePickerType.swift */,
 				A1E7B3C91F58BD68004CE999 /* SVNTermsFieldType.swift */,
 				A1E7B3CA1F58BD68004CE999 /* SVNToggleType.swift */,
 			);

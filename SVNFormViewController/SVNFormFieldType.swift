@@ -77,12 +77,16 @@ public protocol SVNFormFieldDataSource {
   /// - Remark: default is *nil*
   var hasToolTip: SVNFormTermsOverlayType? { get }
   
+  /// will add '*' while typing in this field
   var hasProtectedInformation: Bool { get }
   
+  /// The meta data for a toolbar that sits on top of the textField
   var toolbarData: SVNFormToolbarViewModel { get }
   
+  /// The textField's text font
   var textFieldFont: UIFont { get }
   
+  /// The color of the textfield's text
   var textColor: UIColor { get }
 }
 

@@ -36,7 +36,7 @@ class SVNFormDatePicker: UIDatePicker {
   
   private func setCalendar(){
     datePickerMode = type.datePickerMode
-    setDate(type.minDate, animated: false)
+    setDate(type.startDate, animated: false)
   }
   
   
