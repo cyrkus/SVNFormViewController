@@ -1,0 +1,5 @@
+[Cache]
+  local = ~/Library/Caches/Rome/
+
+[RepositoryMap]
+  SVNiOSBootstraper = SVNBootstraper
