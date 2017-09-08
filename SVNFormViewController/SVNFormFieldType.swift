@@ -8,13 +8,17 @@
 
 import UIKit
 import SVNTextValidator
+import SVNMaterialButton
 
 public protocol SVNFormField: class, Validatable {
   var validationText: String { get }
   var type: SVNFormFieldType! { get set }
 }
 
-public typealias SVNFormViewControllerDataSource = [SVNFormFieldType]
+public protocol SVNFormViewControllerDataSource {
+  var formData: [SVNFormFieldType] { get }
+  var buttonViewModel: SVNMaterialButtonViewModel { get }
+}
 
 
 public protocol SVNFormFieldType {

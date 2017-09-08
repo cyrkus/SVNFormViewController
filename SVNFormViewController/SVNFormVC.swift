@@ -87,9 +87,9 @@ public class SVNFormViewController: UIViewController {
   }()
   
   
-  public init(withData dataSource: SVNFormViewControllerDataSource, buttonViewModel: SVNMaterialButtonViewModel, delegate: SVNFormViewControllerDelegate){
-    viewModel = SVNFormViewModel(dataSource: dataSource)
-    self.buttonViewModel = buttonViewModel
+  public init(withData dataSource: SVNFormViewControllerDataSource, delegate: SVNFormViewControllerDelegate){
+    viewModel = SVNFormViewModel(dataSource: dataSource.formData)
+    self.buttonViewModel = dataSource.buttonViewModel
     super.init(nibName: nil, bundle: nil)
     self.delegate = delegate
   }
@@ -141,7 +141,7 @@ public class SVNFormViewController: UIViewController {
     formFields.forEach({ $0.removeFromSuperview() })
     formFields.removeAll()
     
-    viewModel.update(dataSource: dataSource, autofillData: autofillData ?? Array(repeating: "", count: dataSource.count))
+    viewModel.update(dataSource: dataSource.formData, autofillData: autofillData ?? Array(repeating: "", count: dataSource.formData.count))
     setForm()
     viewDidLayoutSubviews()
   }

@@ -55,13 +55,13 @@ public class SVNFormViewModel: NSObject {
   
   
   //MARK: Data
-  public var numberOfFields: Int {
+  var numberOfFields: Int {
     get {
       return dataSource.count
     }
   }
   
-  fileprivate var dataSource: SVNFormViewControllerDataSource {
+  fileprivate var dataSource: [SVNFormFieldType] {
     didSet {
       validator.unregisterAllFields()
       autoFillText.removeAll()
@@ -75,7 +75,7 @@ public class SVNFormViewModel: NSObject {
   fileprivate lazy var validator: Validator = Validator()
   
   
-  public init(dataSource: SVNFormViewControllerDataSource){
+  init(dataSource: [SVNFormFieldType]){
     self.dataSource = dataSource
     super.init()
   }
@@ -103,7 +103,7 @@ public class SVNFormViewModel: NSObject {
   }
   
   
-  func update(dataSource: SVNFormViewControllerDataSource, autofillData: [String]? = nil){
+  func update(dataSource: [SVNFormFieldType], autofillData: [String]? = nil){
     self.dataSource = dataSource
     setAutoFill(text: autofillData)
   }
