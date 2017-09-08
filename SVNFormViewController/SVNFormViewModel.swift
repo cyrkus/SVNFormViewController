@@ -75,7 +75,7 @@ public class SVNFormViewModel: NSObject {
   fileprivate lazy var validator: Validator = Validator()
   
   
-  init(dataSource: SVNFormViewControllerDataSource){
+  public init(dataSource: SVNFormViewControllerDataSource){
     self.dataSource = dataSource
     super.init()
   }
