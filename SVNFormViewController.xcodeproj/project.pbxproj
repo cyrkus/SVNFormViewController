@@ -25,6 +25,7 @@
 		A17AA6D81F5F567500045C10 /* SVNFormPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AA6D71F5F567500045C10 /* SVNFormPickerView.swift */; };
 		A17AA6DA1F5F569700045C10 /* SVNFormDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AA6D91F5F569700045C10 /* SVNFormDatePicker.swift */; };
 		A17B0BE41F61D40900E2095D /* SVNFormPlaceHolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17B0BE31F61D40900E2095D /* SVNFormPlaceHolderViewModel.swift */; };
+		A18DBB911F63179D00DA00EC /* SVNFormViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A18DBB901F63179D00DA00EC /* SVNFormViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1E7B3CB1F58BD68004CE999 /* SVNFormDatePickerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E7B3C41F58BD68004CE999 /* SVNFormDatePickerType.swift */; };
 		A1E7B3CC1F58BD68004CE999 /* SVNFormError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E7B3C51F58BD68004CE999 /* SVNFormError.swift */; };
 		A1E7B3CD1F58BD68004CE999 /* SVNFormFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E7B3C61F58BD68004CE999 /* SVNFormFieldType.swift */; };
@@ -52,6 +53,7 @@
 		A17AA6D71F5F567500045C10 /* SVNFormPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormPickerView.swift; sourceTree = "<group>"; };
 		A17AA6D91F5F569700045C10 /* SVNFormDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormDatePicker.swift; sourceTree = "<group>"; };
 		A17B0BE31F61D40900E2095D /* SVNFormPlaceHolderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVNFormPlaceHolderViewModel.swift; sourceTree = "<group>"; };
+		A18DBB901F63179D00DA00EC /* SVNFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNFormViewController.h; sourceTree = SOURCE_ROOT; };
 		A1B658F11EA93ECE00418881 /* SVNFormViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVNFormViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B658F51EA93ECE00418881 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B6595E1EA945FF00418881 /* SVNTextValidator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNTextValidator.framework; path = Carthage/Build/iOS/SVNTextValidator.framework; sourceTree = "<group>"; };
@@ -161,6 +163,15 @@
 			name = FormModel;
 			sourceTree = "<group>";
 		};
+		A18DBB921F6317AA00DA00EC /* Includes */ = {
+			isa = PBXGroup;
+			children = (
+				A1B658F51EA93ECE00418881 /* Info.plist */,
+				A18DBB901F63179D00DA00EC /* SVNFormViewController.h */,
+			);
+			name = Includes;
+			sourceTree = "<group>";
+		};
 		A1B658E71EA93ECE00418881 = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +195,7 @@
 				A11836201EB1068F00862332 /* ViewController */,
 				A11836211EB1069D00862332 /* View */,
 				A11836221EB106A300862332 /* Model */,
-				A1B658F51EA93ECE00418881 /* Info.plist */,
+				A18DBB921F6317AA00DA00EC /* Includes */,
 			);
 			path = SVNFormViewController;
 			sourceTree = "<group>";
@@ -208,6 +219,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A18DBB911F63179D00DA00EC /* SVNFormViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
