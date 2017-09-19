@@ -84,7 +84,7 @@ class SVNFormPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
     return data.content.count
   }
   
-  func pickerTapped(_ sender: UITapGestureRecognizer){
+  @objc func pickerTapped(_ sender: UITapGestureRecognizer){
     let rowHeight = self.rowSize(forComponent: 0).height
     let selectedRowFrame = self.bounds.insetBy(dx: 0.0, dy: (self.frame.height - rowHeight) / 2.0)
     let userTappedOnSelectedRow = selectedRowFrame.contains(sender.location(in: self))

@@ -72,7 +72,7 @@ class SVNFormToggleView: UIView, SVNFormField {
   }
   
   
-  func didSelectToggle(_ sender: UITapGestureRecognizer){
+  @objc func didSelectToggle(_ sender: UITapGestureRecognizer){
     select(leftSide: sender.view == leftLabel)
   }
   

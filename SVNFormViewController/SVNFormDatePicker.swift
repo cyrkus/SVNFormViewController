@@ -80,7 +80,7 @@ class SVNFormDatePicker: UIDatePicker {
   }
   
   
-  func datePickerValueChanged(){
+  @objc func datePickerValueChanged(){
     let dateFormater = DateFormatter()
     dateFormater.dateFormat = "MM/dd/yyyy"
     let dateStr = dateFormater.string(from: date)

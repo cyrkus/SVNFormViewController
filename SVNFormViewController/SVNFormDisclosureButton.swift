@@ -56,12 +56,12 @@ class SVNFormDisclosureButton: UIView {
   }
   
   
-  func onDisclosureTap(){
+  @objc func onDisclosureTap(){
     delegate?.onDisclosureButtonTap(alertViewPresentationData: dataSource)
   }
   
   
-  func onImageTap(){
+  @objc func onImageTap(){
     if let formField = superview as? SVNFormFieldView {
       formField.textField.becomeFirstResponder()
     }
